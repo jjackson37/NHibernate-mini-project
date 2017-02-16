@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ObjectModelLayer.AirVehicle" Collapsed="true">
+    <Position X="1.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AirVehicles\AirVehicle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectModelLayer.Balloon" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQACAAAAAA=</HashCode>
+      <FileName>AirVehicles\Balloon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectModelLayer.Plane" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>AirVehicles\Plane.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectModelLayer.AquaticVehicle" Collapsed="true">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AquaticVehicleModels\AquaticVehicle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectModelLayer.Boat" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AquaticVehicleModels\Boat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectModelLayer.Submarine" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>AquaticVehicleModels\Submarine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectModelLayer.Car" Collapsed="true">
+    <Position X="11.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LandVehicleModels\Car.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectModelLayer.LandVehicle" Collapsed="true">
+    <Position X="10.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>LandVehicleModels\LandVehicle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectModelLayer.Lorry" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LandVehicleModels\Lorry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ObjectModelLayer.Vehicle" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAIAAAAAAAAAEAQAAAAAAAAAAAAAggAAAAAAAAAA=</HashCode>
+      <FileName>Vehicle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
