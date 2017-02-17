@@ -6,8 +6,8 @@ namespace ConsoleViewLayer
     {
         private static void Main(string[] args)
         {
-            var mainView = new ConsoleViewMain();
-            mainView.LoadView();
+            var mainView = new MainConsoleView();
+            mainView.Load();
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey(true);
         }

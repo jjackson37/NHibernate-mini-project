@@ -12,6 +12,5 @@
         }
 
         public virtual CarType carType { get; set; }
-
     }
 }

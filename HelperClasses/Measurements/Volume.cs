@@ -50,7 +50,7 @@
             }
             set
             {
-                _volume =  value;
+                _volume = value;
             }
         }
 

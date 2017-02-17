@@ -55,11 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleViewAir.cs" />
-    <Compile Include="ConsoleViewAquatic.cs" />
-    <Compile Include="ConsoleViewLand.cs" />
-    <Compile Include="ConsoleViewMain.cs" />
-    <Compile Include="IView.cs" />
+    <Compile Include="AirConsoleView.cs" />
+    <Compile Include="AquaticConsoleView.cs" />
+    <Compile Include="LandConsoleView.cs" />
+    <Compile Include="MainConsoleView.cs" />
+    <Compile Include="IConsoleView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

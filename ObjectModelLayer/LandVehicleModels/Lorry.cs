@@ -1,6 +1,4 @@
-﻿using HelperClasses.Measurements;
-
-namespace ObjectModelLayer
+﻿namespace ObjectModelLayer
 {
     public class Lorry : LandVehicle
     {

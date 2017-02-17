@@ -5,7 +5,7 @@ namespace NHibernateLayer.ClassMaps
 {
     internal class BalloonMap : ClassMap<Balloon>
     {
-        BalloonMap()
+        private BalloonMap()
         {
             Id(x => x.Id).GeneratedBy.GuidComb();
             Map(x => x.vehicleName).Not.Nullable();

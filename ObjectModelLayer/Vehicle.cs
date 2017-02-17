@@ -1,5 +1,4 @@
-﻿using HelperClasses.Measurements;
-using System;
+﻿using System;
 
 namespace ObjectModelLayer
 {

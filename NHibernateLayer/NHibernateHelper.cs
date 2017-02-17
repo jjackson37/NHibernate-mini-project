@@ -1,7 +1,6 @@
-﻿using NHibernate;
-using FluentNHibernate.Cfg;
+﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
-using NHibernate.Tool.hbm2ddl;
+using NHibernate;
 
 namespace NHibernateLayer
 {
@@ -13,7 +12,7 @@ namespace NHibernateLayer
         {
             get
             {
-                if(_sessionFactory == null)
+                if (_sessionFactory == null)
                 {
                     InitializeSessionFactory();
                 }

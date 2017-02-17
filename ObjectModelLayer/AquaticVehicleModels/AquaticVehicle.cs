@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ObjectModelLayer
+﻿namespace ObjectModelLayer
 {
     public abstract class AquaticVehicle : Vehicle
     {
