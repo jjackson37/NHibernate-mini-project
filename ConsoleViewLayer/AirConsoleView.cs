@@ -48,7 +48,8 @@ namespace ConsoleViewLayer
                 Console.WriteLine("\t2. Add new plane");
                 Console.WriteLine("\t3. Edit a plane");
                 Console.WriteLine("\t4. Delete a plane");
-                Console.WriteLine("\t8. Back\n");
+                Console.WriteLine("\t5. Raise/lower altitude");
+                Console.WriteLine("\t6. Back\n");
                 switch (Console.ReadKey(true).KeyChar)
                 {
                     case '1':
@@ -67,12 +68,6 @@ namespace ConsoleViewLayer
                         break;
 
                     case '6':
-                        break;
-
-                    case '7':
-                        break;
-
-                    case '8':
                         exit = true;
                         break;
 
@@ -95,7 +90,8 @@ namespace ConsoleViewLayer
                 Console.WriteLine("\t2. Add new balloon");
                 Console.WriteLine("\t3. Edit a balloon");
                 Console.WriteLine("\t4. Delete a balloon");
-                Console.WriteLine("\t8. Back\n");
+                Console.WriteLine("\t5. Drop sandbags");
+                Console.WriteLine("\t6. Back\n");
                 switch (Console.ReadKey(true).KeyChar)
                 {
                     case '1':
@@ -114,12 +110,6 @@ namespace ConsoleViewLayer
                         break;
 
                     case '6':
-                        break;
-
-                    case '7':
-                        break;
-
-                    case '8':
                         exit = true;
                         break;
 
