@@ -49,10 +49,17 @@
     <Compile Include="BalloonServices.cs" />
     <Compile Include="BoatServices.cs" />
     <Compile Include="CarServices.cs" />
+    <Compile Include="IObjectService.cs" />
     <Compile Include="LorryServices.cs" />
     <Compile Include="PlaneServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubmarineServices.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ObjectModelLayer\ObjectModelLayer.csproj">
+      <Project>{1EDA7436-01CB-466F-AB31-2475840E64B2}</Project>
+      <Name>ObjectModelLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
