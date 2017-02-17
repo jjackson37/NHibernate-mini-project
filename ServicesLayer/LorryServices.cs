@@ -9,22 +9,47 @@ namespace ServicesLayer
 {
     class LorryServices : IObjectService
     {
-        public void Add(Vehicle vehicleToAdd)
+        public bool Add(Guid Id)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(Vehicle vehicleToDelete)
+        public bool Delete(Guid Id)
         {
             throw new NotImplementedException();
         }
 
-        public void Edit(Vehicle vehicleToEdit)
+        public bool Edit(Guid Id)
         {
             throw new NotImplementedException();
         }
 
-        public void Print()
+        public object FindById(Guid Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<object> FindByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<object> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Refuel(Guid Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SimulateFuel(Guid Id, decimal distance)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ToggleLoad(Guid Id, decimal weight)
         {
             throw new NotImplementedException();
         }

@@ -1,5 +1,6 @@
 ﻿using ObjectModelLayer;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,11 @@ namespace ServicesLayer
 {
     interface IObjectService
     {
-        void Add(object vehicleToAdd);
-        void Edit();
-        void Delete();
-        void Print();
+        bool Add(Guid Id);
+        bool Edit(Guid Id);
+        bool Delete(Guid Id);
+        List<object> GetAll();
+        object FindById(Guid Id);
+        List<object> FindByName(string name);
     }
 }

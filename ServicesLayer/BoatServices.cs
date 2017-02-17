@@ -9,22 +9,42 @@ namespace ServicesLayer
 {
     class BoatServices : IObjectService
     {
-        public void Add()
-        {
-            
-        }
-
-        public void Delete()
+        public bool Add(Guid Id)
         {
             throw new NotImplementedException();
         }
 
-        public void Edit()
+        public bool Delete(Guid Id)
         {
             throw new NotImplementedException();
         }
 
-        public void Print()
+        public bool Edit(Guid Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object FindById(Guid Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<object> FindByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<object> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SimulateFuel(Guid Id, decimal distance)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ToggleLoad(Guid Id, decimal weight)
         {
             throw new NotImplementedException();
         }

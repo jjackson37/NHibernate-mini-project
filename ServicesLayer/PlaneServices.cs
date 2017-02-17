@@ -9,22 +9,32 @@ namespace ServicesLayer
 {
     class PlaneServices : IObjectService
     {
-        public void Add()
+        public bool Add(Guid Id)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete()
+        public bool Delete(Guid Id)
         {
             throw new NotImplementedException();
         }
 
-        public void Edit()
+        public bool Edit(Guid Id)
         {
             throw new NotImplementedException();
         }
 
-        public void Print()
+        public object FindById(Guid Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object FindByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<object> GetAll()
         {
             throw new NotImplementedException();
         }

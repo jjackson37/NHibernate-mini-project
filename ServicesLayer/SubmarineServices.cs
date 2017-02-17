@@ -9,22 +9,42 @@ namespace ServicesLayer
 {
     class SubmarineServices : IObjectService
     {
-        public void Add()
+        public bool Add(Guid Id)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete()
+        public bool Delete(Guid Id)
         {
             throw new NotImplementedException();
         }
 
-        public void Edit()
+        public bool Edit(Guid Id)
         {
             throw new NotImplementedException();
         }
 
-        public void Print()
+        public object FindById(Guid Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<object> FindByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<object> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ToggleLoad(Guid Id, decimal weight)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ToggleSubmerge(Guid Id)
         {
             throw new NotImplementedException();
         }
