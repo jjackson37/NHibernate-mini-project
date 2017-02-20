@@ -7,9 +7,9 @@ using ObjectModelLayer;
 
 namespace ServicesLayer
 {
-    class SubmarineServices : IObjectService
+    class SubmarineServices
     {
-        public bool Add(Guid Id)
+        public bool Add(object VehicleToAdd)
         {
             throw new NotImplementedException();
         }
@@ -45,6 +45,11 @@ namespace ServicesLayer
         }
 
         public bool ToggleSubmerge(Guid Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SimulateOxygen(Guid Id, decimal distance)
         {
             throw new NotImplementedException();
         }

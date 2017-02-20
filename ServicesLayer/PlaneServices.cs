@@ -7,9 +7,9 @@ using ObjectModelLayer;
 
 namespace ServicesLayer
 {
-    class PlaneServices : IObjectService
+    class PlaneServices
     {
-        public bool Add(Guid Id)
+        public bool Add(object VehicleToAdd)
         {
             throw new NotImplementedException();
         }
@@ -29,12 +29,17 @@ namespace ServicesLayer
             throw new NotImplementedException();
         }
 
-        public object FindByName(string name)
+        public List<object> FindByName(string name)
         {
             throw new NotImplementedException();
         }
 
         public List<object> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ChangeAltitude(Guid Id)
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ObjectModelLayer;
+using ServicesLayer;
+using System;
 
 namespace ConsoleViewLayer
 {
@@ -39,6 +41,8 @@ namespace ConsoleViewLayer
         private void CarView()
         {
             bool exit = false;
+            CarConsoleView carViewObj = new CarConsoleView();
+            CarServices carServiceObj = new CarServices();
 
             while (!exit)
             {
@@ -46,32 +50,32 @@ namespace ConsoleViewLayer
                 Console.WriteLine("Choose an option:\n");
                 Console.WriteLine("\t1. Display cars");
                 Console.WriteLine("\t2. Add new car");
-                Console.WriteLine("\t3. Edit a car");
-                Console.WriteLine("\t4. Delete a car");
-                Console.WriteLine("\t5. Simulate fuel consumption after distance");
-                Console.WriteLine("\t6. Refuel");
-                Console.WriteLine("\t7. Back\n");
+                Console.WriteLine("\t3. Select a car");
+                Console.WriteLine("\t4. Back\n");
                 switch (Console.ReadKey(true).KeyChar)
                 {
                     case '1':
+                        carViewObj.ListCarView();
                         break;
 
                     case '2':
+                        carViewObj.AddCarView();
                         break;
 
                     case '3':
+                        Console.Write("Id: ");
+                        try
+                        {
+                            Guid carId = Guid.Parse(Console.ReadLine());
+                            carViewObj.SelectCarView(carServiceObj.GetById(carId));
+                        }
+                        catch (Exception x)
+                        {
+                            Console.WriteLine(x.Message);
+                        }
                         break;
 
                     case '4':
-                        break;
-
-                    case '5':
-                        break;
-
-                    case '6':
-                        break;
-
-                    case '7':
                         exit = true;
                         break;
 

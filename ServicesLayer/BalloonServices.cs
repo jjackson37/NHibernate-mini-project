@@ -7,9 +7,9 @@ using ObjectModelLayer;
 
 namespace ServicesLayer
 {
-    class BalloonServices : IObjectService
+    public class BalloonServices
     {
-        public bool Add(Guid Id)
+        public bool Add(object VehicleToAdd)
         {
             throw new NotImplementedException();
         }
@@ -35,6 +35,16 @@ namespace ServicesLayer
         }
 
         public List<object> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DropSandbag(Guid Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Land(Guid Id)
         {
             throw new NotImplementedException();
         }

@@ -2,13 +2,33 @@
 {
     public class Car : LandVehicle
     {
+        public Car()
+        {
+
+        }
+
+        public Car(string vehicleName, string numberPlate, CarType carType, decimal milage, decimal weight,
+            decimal maximumFuel, int currentPassengers, int maximumPassengers)
+        {
+            this.vehicleName = vehicleName;
+            this.numberPlate = numberPlate;
+            this.carType = carType;
+            this.milage = milage;
+            this.weight = weight;
+            this.maximumFuel = maximumFuel;
+            currentFuel = maximumFuel;
+            this.currentPassengers = currentPassengers;
+            this.maximumPassengers = maximumPassengers;
+        }
+
         public enum CarType
         {
-            Hatchback = 0,
-            Sedan = 1,
-            SUV = 2,
-            Coupe = 3,
-            Convertible = 4
+            Unknown = 0,
+            Hatchback = 1,
+            Sedan = 2,
+            SUV = 3,
+            Coupe = 4,
+            Convertible = 5
         }
 
         public virtual CarType carType { get; set; }

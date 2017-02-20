@@ -7,9 +7,9 @@ using ObjectModelLayer;
 
 namespace ServicesLayer
 {
-    class BoatServices : IObjectService
+    class BoatServices
     {
-        public bool Add(Guid Id)
+        public bool Add(object VehicleToAdd)
         {
             throw new NotImplementedException();
         }
