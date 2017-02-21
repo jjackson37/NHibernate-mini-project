@@ -6,11 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleViewLayer.LandVehicleViews
+namespace ConsoleViewLayer
 {
     internal class LorryConsoleView : ISelectedConsoleView
     {
         LorryServices lorryServiceObj = new LorryServices();
+
+        public void Load()
+        {
+
+        }
 
         public void Add()
         {

@@ -46,16 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AirVehicles\AirVehicle.cs" />
-    <Compile Include="AquaticVehicleModels\AquaticVehicle.cs" />
-    <Compile Include="AirVehicles\Balloon.cs" />
-    <Compile Include="AquaticVehicleModels\Boat.cs" />
-    <Compile Include="LandVehicleModels\Car.cs" />
-    <Compile Include="LandVehicleModels\LandVehicle.cs" />
-    <Compile Include="LandVehicleModels\Lorry.cs" />
-    <Compile Include="AirVehicles\Plane.cs" />
+    <Compile Include="Car.cs" />
+    <Compile Include="Automobile.cs" />
+    <Compile Include="Lorry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AquaticVehicleModels\Submarine.cs" />
     <Compile Include="Vehicle.cs" />
   </ItemGroup>
   <ItemGroup>

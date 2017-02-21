@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleViewLayer.LandVehicleViews
+namespace ConsoleViewLayer
 {
     internal class CarEditConsoleView : CarConsoleView
     {

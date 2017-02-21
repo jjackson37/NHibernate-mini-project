@@ -52,12 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassMaps\BalloonMap.cs" />
-    <Compile Include="ClassMaps\BoatMap.cs" />
     <Compile Include="ClassMaps\CarMap.cs" />
     <Compile Include="ClassMaps\LorryMap.cs" />
-    <Compile Include="ClassMaps\PlaneMap.cs" />
-    <Compile Include="ClassMaps\SubmarineMap.cs" />
     <Compile Include="NHibernateHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

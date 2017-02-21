@@ -2,7 +2,7 @@
 
 namespace ObjectModelLayer
 {
-    public class Car : LandVehicle, ICloneable
+    public class Car : Automobile, ICloneable
     {
         public Car() { }
 

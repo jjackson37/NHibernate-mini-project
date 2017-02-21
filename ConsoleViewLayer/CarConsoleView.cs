@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleViewLayer.LandVehicleViews
+namespace ConsoleViewLayer
 {
     internal class CarConsoleView : ISelectedConsoleView
     {
         CarServices carServicesObj = new CarServices();
+
+        public void Load()
+        {
+
+        }
 
         public void SelectById()
         {

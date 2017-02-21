@@ -1,5 +1,4 @@
-﻿using ConsoleViewLayer.LandVehicleViews;
-using System;
+﻿using System;
 
 namespace ConsoleViewLayer
 {
@@ -13,25 +12,23 @@ namespace ConsoleViewLayer
             {
                 Console.WriteLine("Vehicle DB");
                 Console.WriteLine("Choose an option:\n");
-                Console.WriteLine("\t1. Land vehicles");
-                Console.WriteLine("\t2. Aquatic vehicles");
-                Console.WriteLine("\t3. Air vehicles");
+                Console.WriteLine("\t1. Car");
+                Console.WriteLine("\t2. Lorry");
+                Console.WriteLine("\t3. Motorbike");
                 Console.WriteLine("\t4. Quit program\n");
                 switch (Console.ReadKey(true).KeyChar)
                 {
                     case '1':
-                        var landView = new LandConsoleView();
-                        landView.Load();
+                        var carView = new CarConsoleView();
+                        carView.Load();
                         break;
 
                     case '2':
-                        var aquaticView = new AquaticConsoleView();
-                        aquaticView.Load();
+                        var lorryView = new LorryConsoleView();
+                        lorryView.Load();
                         break;
 
                     case '3':
-                        var airView = new AirConsoleView();
-                        airView.Load();
                         break;
 
                     case '4':

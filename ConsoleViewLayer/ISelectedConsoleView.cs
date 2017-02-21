@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleViewLayer
 {
-    interface ISelectedConsoleView
+    interface ISelectedConsoleView : IConsoleView
     {
         void SelectById();
         void SelectById(Guid Id);

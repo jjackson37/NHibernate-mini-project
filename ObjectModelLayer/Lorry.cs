@@ -1,6 +1,6 @@
 ﻿namespace ObjectModelLayer
 {
-    public class Lorry : LandVehicle
+    public class Lorry : Automobile
     {
         public virtual bool hasLoad { get; set; }
         public virtual decimal? loadWeight { get; set; }
