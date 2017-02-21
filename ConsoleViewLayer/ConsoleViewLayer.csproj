@@ -49,8 +49,11 @@
   <ItemGroup>
     <Compile Include="AirConsoleView.cs" />
     <Compile Include="AquaticConsoleView.cs" />
-    <Compile Include="CarConsoleView.cs" />
-    <Compile Include="LandConsoleView.cs" />
+    <Compile Include="LandVehicleViews\CarConsoleView.cs" />
+    <Compile Include="LandVehicleViews\CarEditConsoleView.cs" />
+    <Compile Include="LandVehicleViews\LandConsoleView.cs" />
+    <Compile Include="LandVehicleViews\LorryConsoleView.cs" />
+    <Compile Include="LandVehicleViews\LorryEditConsoleView.cs" />
     <Compile Include="MainConsoleView.cs" />
     <Compile Include="IConsoleView.cs" />
     <Compile Include="Program.cs" />

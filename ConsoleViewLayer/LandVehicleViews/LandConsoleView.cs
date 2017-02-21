@@ -1,6 +1,7 @@
 ﻿using ObjectModelLayer;
 using ServicesLayer;
 using System;
+using System.Collections.Generic;
 
 namespace ConsoleViewLayer
 {
@@ -42,16 +43,16 @@ namespace ConsoleViewLayer
         {
             bool exit = false;
             CarConsoleView carViewObj = new CarConsoleView();
-            CarServices carServiceObj = new CarServices();
 
             while (!exit)
             {
                 Console.WriteLine("Car");
                 Console.WriteLine("Choose an option:\n");
                 Console.WriteLine("\t1. Display cars");
-                Console.WriteLine("\t2. Add new car");
-                Console.WriteLine("\t3. Select a car");
-                Console.WriteLine("\t4. Back\n");
+                Console.WriteLine("\t2. Search cars");
+                Console.WriteLine("\t3. Add new car");
+                Console.WriteLine("\t4. Select a car");
+                Console.WriteLine("\t5. Back\n");
                 switch (Console.ReadKey(true).KeyChar)
                 {
                     case '1':
@@ -59,23 +60,18 @@ namespace ConsoleViewLayer
                         break;
 
                     case '2':
-                        carViewObj.AddCarView();
+                        carViewObj.SearchCarByName();
                         break;
 
                     case '3':
-                        Console.Write("Id: ");
-                        try
-                        {
-                            Guid carId = Guid.Parse(Console.ReadLine());
-                            carViewObj.SelectCarView(carServiceObj.GetById(carId));
-                        }
-                        catch (Exception x)
-                        {
-                            Console.WriteLine(x.Message);
-                        }
+                        carViewObj.AddCar();
                         break;
 
                     case '4':
+                        carViewObj.SelectCarById();
+                        break;
+
+                    case '5':
                         exit = true;
                         break;
 

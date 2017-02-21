@@ -1,11 +1,10 @@
-﻿namespace ObjectModelLayer
-{
-    public class Car : LandVehicle
-    {
-        public Car()
-        {
+﻿using System;
 
-        }
+namespace ObjectModelLayer
+{
+    public class Car : LandVehicle, ICloneable
+    {
+        public Car() { }
 
         public Car(string vehicleName, string numberPlate, CarType carType, decimal milage, decimal weight,
             decimal maximumFuel, int currentPassengers, int maximumPassengers)
@@ -32,5 +31,7 @@
         }
 
         public virtual CarType carType { get; set; }
+        public virtual Car Clone() { return (Car)MemberwiseClone(); }
+        object ICloneable.Clone() { return Clone(); }
     }
 }

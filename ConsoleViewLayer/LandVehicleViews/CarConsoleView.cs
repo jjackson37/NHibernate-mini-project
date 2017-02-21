@@ -13,12 +13,56 @@ namespace ConsoleViewLayer
     {
         CarServices carServicesObj = new CarServices();
 
-        public void SelectCarView(Car selectedCar)
+        public void SelectCarById()
+        {
+            Console.Write("Id: ");
+            try
+            {
+                Guid carId = Guid.Parse(Console.ReadLine());
+                SelectCar(carServicesObj.GetById(carId));
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("No cars matching this Id in database\n");
+            }
+            catch (Exception x)
+            {
+                Console.WriteLine(x.Message + "\n");
+            }
+        }
+
+        public void SelectCarById(Guid Id)
+        {
+            try
+            {
+                SelectCar(carServicesObj.GetById(Id));
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("No cars matching this Id in database\n");
+            }
+            catch (Exception x)
+            {
+                Console.WriteLine(x.Message + "\n");
+            }
+        }
+
+        public void SearchCarByName()
+        {
+            Console.Write("Name: ");
+            IList<Car> results = carServicesObj.GetByName(Console.ReadLine());
+            foreach (Car selectedCar in results)
+            {
+                PrintCarInfo(selectedCar, true);
+            }
+        }
+
+        public void SelectCar(Car selectedCar)
         {
             bool exit = false;
             while (!exit)
             {
-                Console.WriteLine("\nSelected Car:\n");
+                Console.WriteLine("\nSelected Car:");
                 PrintCarInfo(selectedCar, false);
                 Console.WriteLine("Choose an option:");
                 Console.WriteLine("\t1. Edit");
@@ -26,12 +70,45 @@ namespace ConsoleViewLayer
                 Console.WriteLine("\t3. Calculate fuel");
                 Console.WriteLine("\t4. Refuel");
                 Console.WriteLine("\t5. Back");
-                Console.ReadKey();
+                switch (Console.ReadKey(true).KeyChar)
+                {
+                    case '1':
+                        CarEditConsoleView carEditConsoleView = new CarEditConsoleView(selectedCar);
+                        selectedCar = carServicesObj.Update(carEditConsoleView.Load());
+                        break;
+                    case '2':
+                        Console.Write("Type vehicle name to confirm:");
+                        if (Console.ReadLine() == selectedCar.vehicleName)
+                        {
+                            carServicesObj.Delete(selectedCar);
+                            exit = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Cancelled");
+                        }
+                        break;
+                    case '3':
+                        Console.Write("Enter distance in miles: ");
+                        selectedCar = carServicesObj.CalculateFuel(selectedCar,
+                            Convert.ToInt32(Console.ReadLine()));
+                        break;
+                    case '4':
+                        selectedCar = carServicesObj.Refuel(selectedCar);
+                        break;
+                    case '5':
+                        exit = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input");
+                        break;
+                }
             }
         }
 
-        private void PrintCarInfo(Car selectedCar, bool showId)
+        protected void PrintCarInfo(Car selectedCar, bool showId)
         {
+            Console.WriteLine();
             if (showId)
             {
                 Console.WriteLine("Id: " + selectedCar.Id);
@@ -55,11 +132,11 @@ namespace ConsoleViewLayer
             }
         }
 
-        public void AddCarView()
+        public void AddCar()
         {
             Console.WriteLine("Add car");
             Console.Write("Name: ");
-            string name = Console.ReadLine();
+            string vehicleName = Console.ReadLine();
             string numberPlateEntry, numberPlate = null;
             while (numberPlate == null)
             {
@@ -112,6 +189,17 @@ namespace ConsoleViewLayer
             }
             Console.Write("Milage (Miles/Gallon): ");
             decimal milage = Convert.ToDecimal(Console.ReadLine());
+            Console.Write("Weight (kg): ");
+            decimal weight = Convert.ToDecimal(Console.ReadLine());
+            Console.Write("Maximum fuel (litres): ");
+            decimal maximumFuel = Convert.ToDecimal(Console.ReadLine());
+            Console.Write("Maximum passengers: ");
+            int maximumPassengers = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Current passengers: ");
+            int currentPassengers = Convert.ToInt32(Console.ReadLine());
+            Car addedCar = carServicesObj.Add(vehicleName, numberPlate, carType, milage, weight, maximumFuel,
+                maximumPassengers, currentPassengers);
+            SelectCarById(addedCar.Id);
         }
     }
 }

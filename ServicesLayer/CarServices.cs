@@ -1,4 +1,5 @@
-﻿using NHibernateLayer;
+﻿using NHibernate.Linq;
+using NHibernateLayer;
 using ObjectModelLayer;
 using System;
 using System.Collections.Generic;
@@ -10,19 +11,47 @@ namespace ServicesLayer
 {
     public class CarServices
     {
-        public bool Add(Car CarToAdd)
+        public Car Add(string vehicleName, string numberPlate, Car.CarType carType, decimal milage,
+            decimal weight, decimal maximumFuel, int maximumPassengers, int currentPassengers)
         {
-            throw new NotImplementedException();
+            Car carToAdd = new Car(vehicleName,numberPlate,carType,milage,weight,maximumFuel
+                ,currentPassengers,maximumPassengers);
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                using (var tx = session.BeginTransaction())
+                {
+                    session.Save(carToAdd);
+                    tx.Commit();
+                }
+            }
+            return carToAdd;
         }
 
-        public bool Delete(Guid Id)
+        public void Delete(Car CarToDelete)
         {
-            throw new NotImplementedException();
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                using (var tx = session.BeginTransaction())
+                {
+                    session.Delete(CarToDelete);
+                    tx.Commit();
+                }
+            }
         }
 
-        public List<Car> FindByName(string name)
+        public IList<Car> GetByName(string name)
         {
-            throw new NotImplementedException();
+            IList<Car> listToReturn = null;
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                using (var tx = session.BeginTransaction())
+                {
+                    listToReturn = session.Query<Car>()
+                        .Where(c => c.vehicleName == name).ToList();
+                    tx.Commit();
+                }
+            }
+            return listToReturn;
         }
 
         public IList<Car> GetAll()
@@ -53,19 +82,49 @@ namespace ServicesLayer
             return carToReturn;
         }
 
-        public bool Update(Car CarToUpdate)
+        public Car Update(Car CarToUpdate)
         {
-            throw new NotImplementedException();
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                using (var tx = session.BeginTransaction())
+                {
+                    session.Update(CarToUpdate);
+                    tx.Commit();
+                }
+            }
+            return CarToUpdate;
         }
 
         public Car CalculateFuel(Car CarToCalculate, decimal distance)
         {
-            throw new NotImplementedException();
+            CarToCalculate.currentFuel -= (distance * CarToCalculate.milage);
+            if (CarToCalculate.currentFuel < 0)
+            {
+                CarToCalculate.currentFuel = 0;
+            }
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                using (var tx = session.BeginTransaction())
+                {
+                    session.Update(CarToCalculate);
+                    tx.Commit();
+                }
+            }
+            return CarToCalculate;
         }
 
-        public bool Refuel(Car CarToRefuel)
+        public Car Refuel(Car CarToRefuel)
         {
-            throw new NotImplementedException();
+            CarToRefuel.currentFuel = CarToRefuel.maximumFuel;
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                using (var tx = session.BeginTransaction())
+                {
+                    session.Update(CarToRefuel);
+                    tx.Commit();
+                }
+            }
+            return CarToRefuel;
         }
     }
 }
