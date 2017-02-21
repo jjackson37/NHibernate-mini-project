@@ -54,6 +54,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HelperClasses\HelperClasses.csproj">
+      <Project>{ad81d593-50d3-48d5-a3f8-cbb705b9dc52}</Project>
+      <Name>HelperClasses</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NHibernateLayer\NHibernateLayer.csproj">
       <Project>{2D0DA174-E78F-4FFD-BF0D-7613838202E9}</Project>
       <Name>NHibernateLayer</Name>

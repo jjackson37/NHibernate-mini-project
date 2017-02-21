@@ -1,4 +1,5 @@
-﻿using ObjectModelLayer;
+﻿using HelperClasses.Measurements;
+using ObjectModelLayer;
 using ServicesLayer;
 using System;
 using System.Collections;
@@ -15,7 +16,44 @@ namespace ConsoleViewLayer
 
         public void Load()
         {
+            bool exit = false;
 
+            while (!exit)
+            {
+                Console.WriteLine("Car");
+                Console.WriteLine("Choose an option:\n");
+                Console.WriteLine("\t1. Display cars");
+                Console.WriteLine("\t2. Search cars");
+                Console.WriteLine("\t3. Add new car");
+                Console.WriteLine("\t4. Select a car");
+                Console.WriteLine("\t5. Back\n");
+                switch (Console.ReadKey(true).KeyChar)
+                {
+                    case '1':
+                        List();
+                        break;
+
+                    case '2':
+                        SearchByName();
+                        break;
+
+                    case '3':
+                        Add();
+                        break;
+
+                    case '4':
+                        SelectById();
+                        break;
+
+                    case '5':
+                        exit = true;
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid input");
+                        break;
+                }
+            }
         }
 
         public void SelectById()
@@ -95,8 +133,9 @@ namespace ConsoleViewLayer
                         break;
                     case '3':
                         Console.Write("Enter distance in miles: ");
-                        selectedCar = carServicesObj.CalculateFuel(selectedCar,
-                            Convert.ToInt32(Console.ReadLine()));
+                        Distance distance = new Distance();
+                        distance.miles = Convert.ToDecimal(Console.ReadLine());
+                        selectedCar = carServicesObj.CalculateFuel(selectedCar,distance);
                         break;
                     case '4':
                         selectedCar = carServicesObj.Refuel(selectedCar);
@@ -123,8 +162,8 @@ namespace ConsoleViewLayer
                                 + "Current fuel: {5}l Maximum fuel: {6}l\n"
                                 + "Current passengers: {7} Maximum passengers: {8}\n"
                                 , selectedCar.vehicleName, selectedCar.numberPlate, selectedCar.carType
-                                , decimal.Round(selectedCar.milage, 2), decimal.Round(selectedCar.weight, 2)
-                                , decimal.Round(selectedCar.currentFuel, 2), decimal.Round(selectedCar.maximumFuel, 2)
+                                , decimal.Round(selectedCar.milage.milesPerGallon, 2), decimal.Round(selectedCar.weight.kilograms, 2)
+                                , decimal.Round(selectedCar.currentFuel.litres, 2), decimal.Round(selectedCar.maximumFuel.litres, 2)
                                 , selectedCar.currentPassengers, selectedCar.maximumPassengers);
         }
 
@@ -193,11 +232,14 @@ namespace ConsoleViewLayer
                 }
             }
             Console.Write("Milage (Miles/Gallon): ");
-            decimal milage = Convert.ToDecimal(Console.ReadLine());
+            FuelEconomy milage = new FuelEconomy();
+            milage.milesPerGallon = Convert.ToDecimal(Console.ReadLine());
             Console.Write("Weight (kg): ");
-            decimal weight = Convert.ToDecimal(Console.ReadLine());
+            Weight weight = new Weight();
+            weight.kilograms = Convert.ToDecimal(Console.ReadLine());
             Console.Write("Maximum fuel (litres): ");
-            decimal maximumFuel = Convert.ToDecimal(Console.ReadLine());
+            Volume maximumFuel = new Volume();
+            maximumFuel.litres = Convert.ToDecimal(Console.ReadLine());
             Console.Write("Maximum passengers: ");
             int maximumPassengers = Convert.ToInt32(Console.ReadLine());
             Console.Write("Current passengers: ");

@@ -18,7 +18,7 @@ namespace ConsoleViewLayer
             originalCar = carToEdit.Clone();
         }
 
-        public Car Load()
+        public new Car Load()
         {
             bool exit = false;
             while (!exit)
@@ -135,19 +135,19 @@ namespace ConsoleViewLayer
         private void editMilage()
         {
             Console.Write("Milage(mpg): ");
-            editedCar.milage = Convert.ToDecimal(Console.ReadLine());
+            editedCar.milage.milesPerGallon = Convert.ToDecimal(Console.ReadLine());
         }
 
         private void editWeight()
         {
             Console.Write("Weight(kg): ");
-            editedCar.weight = Convert.ToDecimal(Console.ReadLine());
+            editedCar.weight.kilograms = Convert.ToDecimal(Console.ReadLine());
         }
 
         private void editMaximumFuel()
         {
             Console.Write("Maximum fuel(l): ");
-            editedCar.maximumFuel = Convert.ToDecimal(Console.ReadLine());
+            editedCar.maximumFuel.litres = Convert.ToDecimal(Console.ReadLine());
         }
 
         private void editMaximumPassengers()

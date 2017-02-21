@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelperClasses.Measurements;
+using System;
 
 namespace ObjectModelLayer
 {
@@ -6,8 +7,8 @@ namespace ObjectModelLayer
     {
         public Car() { }
 
-        public Car(string vehicleName, string numberPlate, CarType carType, decimal milage, decimal weight,
-            decimal maximumFuel, int currentPassengers, int maximumPassengers)
+        public Car(string vehicleName, string numberPlate, CarType carType, FuelEconomy milage, Weight weight,
+            Volume maximumFuel, int currentPassengers, int maximumPassengers)
         {
             this.vehicleName = vehicleName;
             this.numberPlate = numberPlate;

@@ -1,4 +1,5 @@
-﻿using NHibernate.Linq;
+﻿using HelperClasses.Measurements;
+using NHibernate.Linq;
 using NHibernateLayer;
 using ObjectModelLayer;
 using System;
@@ -11,8 +12,8 @@ namespace ServicesLayer
 {
     public class CarServices
     {
-        public Car Add(string vehicleName, string numberPlate, Car.CarType carType, decimal milage,
-            decimal weight, decimal maximumFuel, int maximumPassengers, int currentPassengers)
+        public Car Add(string vehicleName, string numberPlate, Car.CarType carType, FuelEconomy milage,
+            Weight weight, Volume maximumFuel, int maximumPassengers, int currentPassengers)
         {
             Car carToAdd = new Car(vehicleName,numberPlate,carType,milage,weight,maximumFuel
                 ,currentPassengers,maximumPassengers);
@@ -95,12 +96,12 @@ namespace ServicesLayer
             return CarToUpdate;
         }
 
-        public Car CalculateFuel(Car CarToCalculate, decimal distance)
+        public Car CalculateFuel(Car CarToCalculate, Distance distance)
         {
-            CarToCalculate.currentFuel -= (distance * CarToCalculate.milage);
-            if (CarToCalculate.currentFuel < 0)
+            CarToCalculate.currentFuel.gallons -= (distance.miles * CarToCalculate.milage.milesPerGallon);
+            if (CarToCalculate.currentFuel.litres < 0)
             {
-                CarToCalculate.currentFuel = 0;
+                CarToCalculate.currentFuel.litres = 0;
             }
             using (var session = NHibernateHelper.OpenSession())
             {
