@@ -7,7 +7,7 @@ using ObjectModelLayer;
 
 namespace ServicesLayer
 {
-    class LorryServices
+    public class LorryServices
     {
         public bool Add(object VehicleToAdd)
         {

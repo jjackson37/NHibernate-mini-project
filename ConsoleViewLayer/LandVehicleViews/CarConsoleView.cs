@@ -7,19 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleViewLayer
+namespace ConsoleViewLayer.LandVehicleViews
 {
-    class CarConsoleView
+    internal class CarConsoleView : ISelectedConsoleView
     {
         CarServices carServicesObj = new CarServices();
 
-        public void SelectCarById()
+        public void SelectById()
         {
             Console.Write("Id: ");
             try
             {
                 Guid carId = Guid.Parse(Console.ReadLine());
-                SelectCar(carServicesObj.GetById(carId));
+                Select(carServicesObj.GetById(carId));
             }
             catch (NullReferenceException)
             {
@@ -31,11 +31,11 @@ namespace ConsoleViewLayer
             }
         }
 
-        public void SelectCarById(Guid Id)
+        public void SelectById(Guid Id)
         {
             try
             {
-                SelectCar(carServicesObj.GetById(Id));
+                Select(carServicesObj.GetById(Id));
             }
             catch (NullReferenceException)
             {
@@ -47,23 +47,23 @@ namespace ConsoleViewLayer
             }
         }
 
-        public void SearchCarByName()
+        public void SearchByName()
         {
             Console.Write("Name: ");
             IList<Car> results = carServicesObj.GetByName(Console.ReadLine());
             foreach (Car selectedCar in results)
             {
-                PrintCarInfo(selectedCar, true);
+                PrintInfo(selectedCar, true);
             }
         }
 
-        public void SelectCar(Car selectedCar)
+        public void Select(Car selectedCar)
         {
             bool exit = false;
             while (!exit)
             {
                 Console.WriteLine("\nSelected Car:");
-                PrintCarInfo(selectedCar, false);
+                PrintInfo(selectedCar, false);
                 Console.WriteLine("Choose an option:");
                 Console.WriteLine("\t1. Edit");
                 Console.WriteLine("\t2. Delete");
@@ -106,7 +106,7 @@ namespace ConsoleViewLayer
             }
         }
 
-        protected void PrintCarInfo(Car selectedCar, bool showId)
+        protected void PrintInfo(Car selectedCar, bool showId)
         {
             Console.WriteLine();
             if (showId)
@@ -123,16 +123,16 @@ namespace ConsoleViewLayer
                                 , selectedCar.currentPassengers, selectedCar.maximumPassengers);
         }
 
-        public void ListCarView()
+        public void List()
         {
             IList<Car> carList = carServicesObj.GetAll();
             foreach (Car selectedCar in carList)
             {
-                PrintCarInfo(selectedCar, true);
+                PrintInfo(selectedCar, true);
             }
         }
 
-        public void AddCar()
+        public void Add()
         {
             Console.WriteLine("Add car");
             Console.Write("Name: ");
@@ -199,7 +199,7 @@ namespace ConsoleViewLayer
             int currentPassengers = Convert.ToInt32(Console.ReadLine());
             Car addedCar = carServicesObj.Add(vehicleName, numberPlate, carType, milage, weight, maximumFuel,
                 maximumPassengers, currentPassengers);
-            SelectCarById(addedCar.Id);
+            SelectById(addedCar.Id);
         }
     }
 }

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleViewLayer
+namespace ConsoleViewLayer.LandVehicleViews
 {
-    class CarEditConsoleView : CarConsoleView
+    internal class CarEditConsoleView : CarConsoleView
     {
         private Car originalCar = new Car();
         private Car editedCar = new Car();
@@ -24,9 +24,9 @@ namespace ConsoleViewLayer
             while (!exit)
             {
                 Console.WriteLine("Unedited:");
-                PrintCarInfo(originalCar, false);
+                PrintInfo(originalCar, false);
                 Console.WriteLine("Edited:");
-                PrintCarInfo(editedCar, false);
+                PrintInfo(editedCar, false);
                 Console.WriteLine("Select field to edit");
                 Console.WriteLine("\t1. Vehicle name");
                 Console.WriteLine("\t2. Number plate");

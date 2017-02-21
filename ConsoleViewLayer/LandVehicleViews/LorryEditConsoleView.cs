@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleViewLayer.LandVehicleViews
 {
-    class LorryEditConsoleView
+    internal class LorryEditConsoleView
     {
     }
 }

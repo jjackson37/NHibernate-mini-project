@@ -3,9 +3,9 @@ using ServicesLayer;
 using System;
 using System.Collections.Generic;
 
-namespace ConsoleViewLayer
+namespace ConsoleViewLayer.LandVehicleViews
 {
-    internal class LandConsoleView : IConsoleView
+    public class LandConsoleView : IConsoleView
     {
         public void Load()
         {
@@ -56,19 +56,19 @@ namespace ConsoleViewLayer
                 switch (Console.ReadKey(true).KeyChar)
                 {
                     case '1':
-                        carViewObj.ListCarView();
+                        carViewObj.List();
                         break;
 
                     case '2':
-                        carViewObj.SearchCarByName();
+                        carViewObj.SearchByName();
                         break;
 
                     case '3':
-                        carViewObj.AddCar();
+                        carViewObj.Add();
                         break;
 
                     case '4':
-                        carViewObj.SelectCarById();
+                        carViewObj.SelectById();
                         break;
 
                     case '5':
@@ -85,43 +85,36 @@ namespace ConsoleViewLayer
         private void LorryView()
         {
             bool exit = false;
+            LorryConsoleView lorryViewObj = new LorryConsoleView();
 
             while (!exit)
             {
                 Console.WriteLine("Lorry");
                 Console.WriteLine("Choose an option:\n");
                 Console.WriteLine("\t1. Display lorrys");
-                Console.WriteLine("\t2. Add new lorry");
-                Console.WriteLine("\t3. Edit a lorry");
-                Console.WriteLine("\t4. Delete a lorry");
-                Console.WriteLine("\t5. Simulate fuel consumption");
-                Console.WriteLine("\t6. Refuel");
-                Console.WriteLine("\t7. Attach/detach load");
-                Console.WriteLine("\t8. Back\n");
+                Console.WriteLine("\t2. Search lorrys");
+                Console.WriteLine("\t3. Add new lorry");
+                Console.WriteLine("\t4. Select a lorry");
+                Console.WriteLine("\t5. Back\n");
                 switch (Console.ReadKey(true).KeyChar)
                 {
                     case '1':
+                        lorryViewObj.List();
                         break;
 
                     case '2':
+                        lorryViewObj.SearchByName();
                         break;
 
                     case '3':
+                        lorryViewObj.Add();
                         break;
 
                     case '4':
+                        lorryViewObj.SelectById();
                         break;
 
                     case '5':
-                        break;
-
-                    case '6':
-                        break;
-
-                    case '7':
-                        break;
-
-                    case '8':
                         exit = true;
                         break;
 
