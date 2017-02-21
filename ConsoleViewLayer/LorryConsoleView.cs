@@ -1,20 +1,15 @@
 ﻿using ObjectModelLayer;
 using ServicesLayer;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleViewLayer
 {
     internal class LorryConsoleView : ISelectedConsoleView
     {
-        LorryServices lorryServiceObj = new LorryServices();
+        private LorryServices lorryServiceObj = new LorryServices();
 
         public void Load()
         {
-
         }
 
         public void Add()
@@ -50,10 +45,12 @@ namespace ConsoleViewLayer
                         hasLoad = true;
                         validLoadInput = true;
                         break;
+
                     case 'n':
                         hasLoad = false;
                         validLoadInput = true;
                         break;
+
                     default:
                         Console.WriteLine("Invalid input");
                         break;
@@ -75,12 +72,10 @@ namespace ConsoleViewLayer
 
         public void Select(Lorry selectedLorry)
         {
-
         }
 
         protected void PrintInfo(Lorry selectedLorry, bool showId)
         {
-
         }
 
         public void List()

@@ -2,17 +2,13 @@
 using ObjectModelLayer;
 using ServicesLayer;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleViewLayer
 {
     internal class CarConsoleView : ISelectedConsoleView
     {
-        CarServices carServicesObj = new CarServices();
+        private CarServices carServicesObj = new CarServices();
 
         public void Load()
         {
@@ -27,6 +23,7 @@ namespace ConsoleViewLayer
                 Console.WriteLine("\t3. Add new car");
                 Console.WriteLine("\t4. Select a car");
                 Console.WriteLine("\t5. Back\n");
+
                 switch (Console.ReadKey(true).KeyChar)
                 {
                     case '1':
@@ -113,12 +110,14 @@ namespace ConsoleViewLayer
                 Console.WriteLine("\t3. Calculate fuel");
                 Console.WriteLine("\t4. Refuel");
                 Console.WriteLine("\t5. Back");
+
                 switch (Console.ReadKey(true).KeyChar)
                 {
                     case '1':
                         CarEditConsoleView carEditConsoleView = new CarEditConsoleView(selectedCar);
                         selectedCar = carServicesObj.Update(carEditConsoleView.Load());
                         break;
+
                     case '2':
                         Console.Write("Type vehicle name to confirm:");
                         if (Console.ReadLine() == selectedCar.vehicleName)
@@ -131,18 +130,22 @@ namespace ConsoleViewLayer
                             Console.WriteLine("Cancelled");
                         }
                         break;
+
                     case '3':
                         Console.Write("Enter distance in miles: ");
                         Distance distance = new Distance();
                         distance.miles = Convert.ToDecimal(Console.ReadLine());
-                        selectedCar = carServicesObj.CalculateFuel(selectedCar,distance);
+                        selectedCar = carServicesObj.CalculateFuel(selectedCar, distance);
                         break;
+
                     case '4':
                         selectedCar = carServicesObj.Refuel(selectedCar);
                         break;
+
                     case '5':
                         exit = true;
                         break;
+
                     default:
                         Console.WriteLine("Invalid input");
                         break;
@@ -157,8 +160,8 @@ namespace ConsoleViewLayer
             {
                 Console.WriteLine("Id: " + selectedCar.Id);
             }
-            Console.WriteLine("Name: {0} Numberplate: {1} Type: {2}\n"
-                                + "Milage: {3}mpg Weight: {4}kg\n"
+            Console.WriteLine(@"Name: ""{0}"" Numberplate: {1} Type: {2}"
+                                + "\nMilage: {3}mpg Weight: {4}kg\n"
                                 + "Current fuel: {5}l Maximum fuel: {6}l\n"
                                 + "Current passengers: {7} Maximum passengers: {8}\n"
                                 , selectedCar.vehicleName, selectedCar.numberPlate, selectedCar.carType
@@ -181,12 +184,13 @@ namespace ConsoleViewLayer
             Console.WriteLine("Add car");
             Console.Write("Name: ");
             string vehicleName = Console.ReadLine();
+
             string numberPlateEntry, numberPlate = null;
             while (numberPlate == null)
             {
                 Console.Write("Number plate: ");
                 numberPlateEntry = Console.ReadLine().Replace(" ", "");
-                if(numberPlateEntry.Length != 7)
+                if (numberPlateEntry.Length != 7)
                 {
                     Console.WriteLine("Invalid numberplate length");
                 }
@@ -195,11 +199,13 @@ namespace ConsoleViewLayer
                     numberPlate = numberPlateEntry;
                 }
             }
+
             Console.WriteLine("1. Hatchback");
             Console.WriteLine("2. Sedan");
             Console.WriteLine("3. SUV");
             Console.WriteLine("4. Coupe");
             Console.WriteLine("5. Convertible");
+
             Car.CarType carType = Car.CarType.Unknown;
             while (carType == Car.CarType.Unknown)
             {
@@ -210,22 +216,27 @@ namespace ConsoleViewLayer
                         carType = Car.CarType.Hatchback;
                         Console.WriteLine("Hatchback");
                         break;
+
                     case '2':
                         carType = Car.CarType.Sedan;
                         Console.WriteLine("Sedan");
                         break;
+
                     case '3':
                         carType = Car.CarType.SUV;
                         Console.WriteLine("SUV");
                         break;
+
                     case '4':
                         carType = Car.CarType.Coupe;
                         Console.WriteLine("Coupe");
                         break;
+
                     case '5':
                         carType = Car.CarType.Convertible;
                         Console.WriteLine("Convertible");
                         break;
+
                     default:
                         Console.WriteLine("Invalid input");
                         break;
@@ -234,18 +245,24 @@ namespace ConsoleViewLayer
             Console.Write("Milage (Miles/Gallon): ");
             FuelEconomy milage = new FuelEconomy();
             milage.milesPerGallon = Convert.ToDecimal(Console.ReadLine());
+
             Console.Write("Weight (kg): ");
             Weight weight = new Weight();
             weight.kilograms = Convert.ToDecimal(Console.ReadLine());
+
             Console.Write("Maximum fuel (litres): ");
             Volume maximumFuel = new Volume();
             maximumFuel.litres = Convert.ToDecimal(Console.ReadLine());
+
             Console.Write("Maximum passengers: ");
             int maximumPassengers = Convert.ToInt32(Console.ReadLine());
+
             Console.Write("Current passengers: ");
             int currentPassengers = Convert.ToInt32(Console.ReadLine());
+
             Car addedCar = carServicesObj.Add(vehicleName, numberPlate, carType, milage, weight, maximumFuel,
                 maximumPassengers, currentPassengers);
+
             SelectById(addedCar.Id);
         }
     }

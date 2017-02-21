@@ -53,7 +53,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassMaps\CarMap.cs" />
+    <Compile Include="ClassMaps\FuelEconomyMap.cs" />
     <Compile Include="ClassMaps\LorryMap.cs" />
+    <Compile Include="ClassMaps\VolumeMap.cs" />
+    <Compile Include="ClassMaps\WeightMap.cs" />
     <Compile Include="NHibernateHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

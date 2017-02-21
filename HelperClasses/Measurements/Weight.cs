@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace HelperClasses.Measurements
+﻿namespace HelperClasses.Measurements
 {
     public class Weight
     {

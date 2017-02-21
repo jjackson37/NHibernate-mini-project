@@ -1,9 +1,5 @@
 ﻿using ObjectModelLayer;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleViewLayer
 {
@@ -25,8 +21,10 @@ namespace ConsoleViewLayer
             {
                 Console.WriteLine("Unedited:");
                 PrintInfo(originalCar, false);
+
                 Console.WriteLine("Edited:");
                 PrintInfo(editedCar, false);
+
                 Console.WriteLine("Select field to edit");
                 Console.WriteLine("\t1. Vehicle name");
                 Console.WriteLine("\t2. Number plate");
@@ -38,35 +36,45 @@ namespace ConsoleViewLayer
                 Console.WriteLine("\t8. Current passengers");
                 Console.WriteLine("\t9. Save changes");
                 Console.WriteLine("\t0. Discard changes and go back");
+
                 switch (Console.ReadKey(true).KeyChar)
                 {
                     case '1':
                         editName();
                         break;
+
                     case '2':
                         editNumberPlate();
                         break;
+
                     case '3':
                         editCarType();
                         break;
+
                     case '4':
                         editMilage();
                         break;
+
                     case '5':
                         editWeight();
                         break;
+
                     case '6':
                         editMaximumFuel();
                         break;
+
                     case '7':
                         editMaximumPassengers();
                         break;
+
                     case '8':
                         editCurrentPassengers();
                         break;
+
                     case '9':
                         exit = true;
                         break;
+
                     case '0':
                         Console.WriteLine("Discard changes? Y/N");
                         if (Console.ReadKey(true).KeyChar == 'y')
@@ -75,6 +83,7 @@ namespace ConsoleViewLayer
                             exit = true;
                         }
                         break;
+
                     default:
                         Console.WriteLine("Invalid input");
                         break;
@@ -102,6 +111,7 @@ namespace ConsoleViewLayer
             Console.WriteLine("3. SUV");
             Console.WriteLine("4. Coupe");
             Console.WriteLine("5. Convertible");
+
             Console.Write("Car type: ");
             switch (Console.ReadKey(true).KeyChar)
             {
@@ -109,26 +119,30 @@ namespace ConsoleViewLayer
                     editedCar.carType = Car.CarType.Hatchback;
                     Console.WriteLine("Hatchback");
                     break;
+
                 case '2':
                     editedCar.carType = Car.CarType.Sedan;
                     Console.WriteLine("Sedan");
                     break;
+
                 case '3':
                     editedCar.carType = Car.CarType.SUV;
                     Console.WriteLine("SUV");
                     break;
+
                 case '4':
                     editedCar.carType = Car.CarType.Coupe;
                     Console.WriteLine("Coupe");
                     break;
+
                 case '5':
                     editedCar.carType = Car.CarType.Convertible;
                     Console.WriteLine("Convertible");
                     break;
+
                 default:
                     Console.WriteLine("Invalid input");
                     break;
-
             }
         }
 

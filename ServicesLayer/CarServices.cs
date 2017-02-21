@@ -5,8 +5,6 @@ using ObjectModelLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ServicesLayer
 {
@@ -15,8 +13,8 @@ namespace ServicesLayer
         public Car Add(string vehicleName, string numberPlate, Car.CarType carType, FuelEconomy milage,
             Weight weight, Volume maximumFuel, int maximumPassengers, int currentPassengers)
         {
-            Car carToAdd = new Car(vehicleName,numberPlate,carType,milage,weight,maximumFuel
-                ,currentPassengers,maximumPassengers);
+            Car carToAdd = new Car(vehicleName, numberPlate, carType, milage, weight, maximumFuel
+                , currentPassengers, maximumPassengers);
             using (var session = NHibernateHelper.OpenSession())
             {
                 using (var tx = session.BeginTransaction())
