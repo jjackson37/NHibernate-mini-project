@@ -4,14 +4,14 @@ namespace ConsoleViewLayer
 {
     internal interface ISelectedConsoleView : IConsoleView
     {
-        void SelectById();
-
-        void SelectById(Guid Id);
-
-        void SearchByName();
+        void Add();
 
         void List();
 
-        void Add();
+        void SearchByName();
+
+        void SelectById();
+
+        void SelectById(Guid Id);
     }
 }

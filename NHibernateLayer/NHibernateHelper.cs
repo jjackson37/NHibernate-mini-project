@@ -20,17 +20,17 @@ namespace NHibernateLayer
             }
         }
 
+        public static ISession OpenSession()
+        {
+            return SessionFactory.OpenSession();
+        }
+
         private static void InitializeSessionFactory()
         {
             _sessionFactory = Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2008.ConnectionString(c => c.FromConnectionStringWithKey("default")))
                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<NHibernateHelper>())
                 .BuildSessionFactory();
-        }
-
-        public static ISession OpenSession()
-        {
-            return SessionFactory.OpenSession();
         }
     }
 }

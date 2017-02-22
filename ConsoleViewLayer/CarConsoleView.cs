@@ -10,175 +10,6 @@ namespace ConsoleViewLayer
     {
         private CarServices carServicesObj = new CarServices();
 
-        public void Load()
-        {
-            bool exit = false;
-
-            while (!exit)
-            {
-                Console.WriteLine("Car");
-                Console.WriteLine("Choose an option:\n");
-                Console.WriteLine("\t1. Display cars");
-                Console.WriteLine("\t2. Search cars");
-                Console.WriteLine("\t3. Add new car");
-                Console.WriteLine("\t4. Select a car");
-                Console.WriteLine("\t5. Back\n");
-
-                switch (Console.ReadKey(true).KeyChar)
-                {
-                    case '1':
-                        List();
-                        break;
-
-                    case '2':
-                        SearchByName();
-                        break;
-
-                    case '3':
-                        Add();
-                        break;
-
-                    case '4':
-                        SelectById();
-                        break;
-
-                    case '5':
-                        exit = true;
-                        break;
-
-                    default:
-                        Console.WriteLine("Invalid input");
-                        break;
-                }
-            }
-        }
-
-        public void SelectById()
-        {
-            Console.Write("Id: ");
-            try
-            {
-                Guid carId = Guid.Parse(Console.ReadLine());
-                Select(carServicesObj.GetById(carId));
-            }
-            catch (NullReferenceException)
-            {
-                Console.WriteLine("No cars matching this Id in database\n");
-            }
-            catch (Exception x)
-            {
-                Console.WriteLine(x.Message + "\n");
-            }
-        }
-
-        public void SelectById(Guid Id)
-        {
-            try
-            {
-                Select(carServicesObj.GetById(Id));
-            }
-            catch (NullReferenceException)
-            {
-                Console.WriteLine("No cars matching this Id in database\n");
-            }
-            catch (Exception x)
-            {
-                Console.WriteLine(x.Message + "\n");
-            }
-        }
-
-        public void SearchByName()
-        {
-            Console.Write("Name: ");
-            IList<Car> results = carServicesObj.GetByName(Console.ReadLine());
-            foreach (Car selectedCar in results)
-            {
-                PrintInfo(selectedCar, true);
-            }
-        }
-
-        public void Select(Car selectedCar)
-        {
-            bool exit = false;
-            while (!exit)
-            {
-                Console.WriteLine("\nSelected Car:");
-                PrintInfo(selectedCar, false);
-                Console.WriteLine("Choose an option:");
-                Console.WriteLine("\t1. Edit");
-                Console.WriteLine("\t2. Delete");
-                Console.WriteLine("\t3. Calculate fuel");
-                Console.WriteLine("\t4. Refuel");
-                Console.WriteLine("\t5. Back");
-
-                switch (Console.ReadKey(true).KeyChar)
-                {
-                    case '1':
-                        CarEditConsoleView carEditConsoleView = new CarEditConsoleView(selectedCar);
-                        selectedCar = carServicesObj.Update(carEditConsoleView.Load());
-                        break;
-
-                    case '2':
-                        Console.Write("Type vehicle name to confirm:");
-                        if (Console.ReadLine() == selectedCar.vehicleName)
-                        {
-                            carServicesObj.Delete(selectedCar);
-                            exit = true;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Cancelled");
-                        }
-                        break;
-
-                    case '3':
-                        Console.Write("Enter distance in miles: ");
-                        Distance distance = new Distance();
-                        distance.miles = Convert.ToDecimal(Console.ReadLine());
-                        selectedCar = carServicesObj.CalculateFuel(selectedCar, distance);
-                        break;
-
-                    case '4':
-                        selectedCar = carServicesObj.Refuel(selectedCar);
-                        break;
-
-                    case '5':
-                        exit = true;
-                        break;
-
-                    default:
-                        Console.WriteLine("Invalid input");
-                        break;
-                }
-            }
-        }
-
-        protected void PrintInfo(Car selectedCar, bool showId)
-        {
-            Console.WriteLine();
-            if (showId)
-            {
-                Console.WriteLine("Id: " + selectedCar.Id);
-            }
-            Console.WriteLine(@"Name: ""{0}"" Numberplate: {1} Type: {2}"
-                                + "\nMilage: {3}mpg Weight: {4}kg\n"
-                                + "Current fuel: {5}l Maximum fuel: {6}l\n"
-                                + "Current passengers: {7} Maximum passengers: {8}\n"
-                                , selectedCar.vehicleName, selectedCar.numberPlate, selectedCar.carType
-                                , decimal.Round(selectedCar.milage.milesPerGallon, 2), decimal.Round(selectedCar.weight.kilograms, 2)
-                                , decimal.Round(selectedCar.currentFuel.litres, 2), decimal.Round(selectedCar.maximumFuel.litres, 2)
-                                , selectedCar.currentPassengers, selectedCar.maximumPassengers);
-        }
-
-        public void List()
-        {
-            IList<Car> carList = carServicesObj.GetAll();
-            foreach (Car selectedCar in carList)
-            {
-                PrintInfo(selectedCar, true);
-            }
-        }
-
         public void Add()
         {
             Console.WriteLine("Add car");
@@ -264,6 +95,175 @@ namespace ConsoleViewLayer
                 maximumPassengers, currentPassengers);
 
             SelectById(addedCar.Id);
+        }
+
+        public void List()
+        {
+            IList<Car> carList = carServicesObj.GetAll();
+            foreach (Car selectedCar in carList)
+            {
+                PrintInfo(selectedCar, true);
+            }
+        }
+
+        public void Load()
+        {
+            bool exit = false;
+
+            while (!exit)
+            {
+                Console.WriteLine("Car");
+                Console.WriteLine("Choose an option:\n");
+                Console.WriteLine("\t1. Display cars");
+                Console.WriteLine("\t2. Search cars");
+                Console.WriteLine("\t3. Add new car");
+                Console.WriteLine("\t4. Select a car");
+                Console.WriteLine("\t5. Back\n");
+
+                switch (Console.ReadKey(true).KeyChar)
+                {
+                    case '1':
+                        List();
+                        break;
+
+                    case '2':
+                        SearchByName();
+                        break;
+
+                    case '3':
+                        Add();
+                        break;
+
+                    case '4':
+                        SelectById();
+                        break;
+
+                    case '5':
+                        exit = true;
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid input");
+                        break;
+                }
+            }
+        }
+
+        public void SearchByName()
+        {
+            Console.Write("Name: ");
+            IList<Car> results = carServicesObj.GetByName(Console.ReadLine());
+            foreach (Car selectedCar in results)
+            {
+                PrintInfo(selectedCar, true);
+            }
+        }
+
+        public void Select(Car selectedCar)
+        {
+            bool exit = false;
+            while (!exit)
+            {
+                Console.WriteLine("\nSelected Car:");
+                PrintInfo(selectedCar, false);
+                Console.WriteLine("Choose an option:");
+                Console.WriteLine("\t1. Edit");
+                Console.WriteLine("\t2. Delete");
+                Console.WriteLine("\t3. Calculate fuel");
+                Console.WriteLine("\t4. Refuel");
+                Console.WriteLine("\t5. Back");
+
+                switch (Console.ReadKey(true).KeyChar)
+                {
+                    case '1':
+                        CarEditConsoleView carEditConsoleView = new CarEditConsoleView(selectedCar);
+                        selectedCar = carServicesObj.Update(carEditConsoleView.Load());
+                        break;
+
+                    case '2':
+                        Console.Write("Type vehicle name to confirm:");
+                        if (Console.ReadLine() == selectedCar.vehicleName)
+                        {
+                            carServicesObj.Delete(selectedCar);
+                            exit = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Cancelled");
+                        }
+                        break;
+
+                    case '3':
+                        Console.Write("Enter distance in miles: ");
+                        Distance distance = new Distance();
+                        distance.miles = Convert.ToDecimal(Console.ReadLine());
+                        selectedCar = carServicesObj.CalculateFuel(selectedCar, distance);
+                        break;
+
+                    case '4':
+                        selectedCar = carServicesObj.Refuel(selectedCar);
+                        break;
+
+                    case '5':
+                        exit = true;
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid input");
+                        break;
+                }
+            }
+        }
+
+        public void SelectById()
+        {
+            Console.Write("Id: ");
+            try
+            {
+                Guid carId = Guid.Parse(Console.ReadLine());
+                Select(carServicesObj.GetById(carId));
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("No cars matching this Id in database\n");
+            }
+            catch (Exception x)
+            {
+                Console.WriteLine(x.Message + "\n");
+            }
+        }
+
+        public void SelectById(Guid Id)
+        {
+            try
+            {
+                Select(carServicesObj.GetById(Id));
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("No cars matching this Id in database\n");
+            }
+            catch (Exception x)
+            {
+                Console.WriteLine(x.Message + "\n");
+            }
+        }
+
+        protected void PrintInfo(Car selectedCar, bool showId)
+        {
+            Console.WriteLine();
+            if (showId)
+            {
+                Console.WriteLine("Id: " + selectedCar.Id);
+            }
+            Console.WriteLine(@"Name: ""{0}"" Numberplate: {1} Type: {2}"
+                                + "\nMilage: {3}mpg Weight: {4}kg\n"
+                                + "Current fuel: {5}l Maximum fuel: {6}l\n"
+                                + "Current passengers: {7} Maximum passengers: {8}\n"
+                                , selectedCar.vehicleName, selectedCar.numberPlate, selectedCar.carType
+                                , decimal.Round(selectedCar.milage.milesPerGallon, 2), decimal.Round(selectedCar.weight.kilograms, 2)
+                                , decimal.Round(selectedCar.currentFuel.litres, 2), decimal.Round(selectedCar.maximumFuel.litres, 2)
+                                , selectedCar.currentPassengers, selectedCar.maximumPassengers);
         }
     }
 }

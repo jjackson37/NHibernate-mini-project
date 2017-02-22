@@ -29,6 +29,8 @@ namespace ConsoleViewLayer
                         break;
 
                     case '3':
+                        var motorbikeView = new MotorbikeConsoleView();
+                        motorbikeView.Load();
                         break;
 
                     case '4':

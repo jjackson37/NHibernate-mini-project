@@ -3,16 +3,19 @@ using ObjectModelLayer;
 using ServicesLayer;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ConsoleViewLayer
 {
-    internal class LorryConsoleView : ISelectedConsoleView
+    internal class MotorbikeConsoleView : ISelectedConsoleView
     {
-        private LorryServices lorryServicesObj = new LorryServices();
+        private MotorbikeServices motorbikeServicesObj = new MotorbikeServices();
 
         public void Add()
         {
-            Console.WriteLine("Add lorry");
+            Console.WriteLine("Add motorbike");
             Console.Write("Name: ");
             string vehicleName = Console.ReadLine();
 
@@ -39,31 +42,6 @@ namespace ConsoleViewLayer
             Weight weight = new Weight();
             weight.kilograms = Convert.ToDecimal(Console.ReadLine());
 
-            bool hasLoad = false, validLoadInput = false;
-            Weight loadWeight = new Weight();
-            while (!validLoadInput)
-            {
-                Console.Write("Has load (Y/N):");
-                switch (Console.ReadKey().KeyChar)
-                {
-                    case 'y':
-                        hasLoad = true;
-                        validLoadInput = true;
-                        Console.Write("Load weight (kg): ");
-                        loadWeight.kilograms = Convert.ToDecimal(Console.ReadLine());
-                        break;
-
-                    case 'n':
-                        hasLoad = false;
-                        validLoadInput = true;
-                        break;
-
-                    default:
-                        Console.WriteLine("\nInvalid input");
-                        break;
-                }
-            }
-
             Console.Write("Maximum fuel (litres): ");
             Volume maximumFuel = new Volume();
             maximumFuel.litres = Convert.ToDecimal(Console.ReadLine());
@@ -74,18 +52,38 @@ namespace ConsoleViewLayer
             Console.Write("Current passengers: ");
             int currentPassengers = Convert.ToInt32(Console.ReadLine());
 
-            Lorry addedLorry = lorryServicesObj.Add(vehicleName, numberPlate, milage, weight, hasLoad,
-                loadWeight, maximumFuel, currentPassengers, maximumPassengers);
+            bool sideCar = false, sideCarValidInput = false;
+            while (!sideCarValidInput)
+            {
+                Console.Write("Sidecar (Y/N):");
+                switch (Console.ReadKey().KeyChar)
+                {
+                    case 'y':
+                        sideCar = true;
+                        sideCarValidInput = true;
+                        break;
+                    case 'n':
+                        sideCar = true;
+                        sideCarValidInput = true;
+                        break;
+                    default:
+                        Console.WriteLine("\nInvalid input");
+                        break;
+                }
+            }
 
-            SelectById(addedLorry.Id);
+            Motorbike addedMotorbike = motorbikeServicesObj.Add(vehicleName, numberPlate, milage, weight, maximumFuel,
+                maximumPassengers, currentPassengers, sideCar);
+
+            SelectById(addedMotorbike.Id);
         }
 
         public void List()
         {
-            IList<Lorry> lorryList = lorryServicesObj.GetAll();
-            foreach (Lorry selectedLorry in lorryList)
+            IList<Motorbike> motorbikeList = motorbikeServicesObj.GetAll();
+            foreach (Motorbike selectedMotorbike in motorbikeList)
             {
-                PrintInfo(selectedLorry, true);
+                PrintInfo(selectedMotorbike, true);
             }
         }
 
@@ -95,12 +93,12 @@ namespace ConsoleViewLayer
 
             while (!exit)
             {
-                Console.WriteLine("Lorry");
+                Console.WriteLine("Motorbike");
                 Console.WriteLine("Choose an option:\n");
-                Console.WriteLine("\t1. Display lorrys");
-                Console.WriteLine("\t2. Search lorrys");
-                Console.WriteLine("\t3. Add new lorry");
-                Console.WriteLine("\t4. Select a lorry");
+                Console.WriteLine("\t1. Display motorbikes");
+                Console.WriteLine("\t2. Search motorbikes");
+                Console.WriteLine("\t3. Add new motorbike");
+                Console.WriteLine("\t4. Select a motorbike");
                 Console.WriteLine("\t5. Back\n");
 
                 switch (Console.ReadKey(true).KeyChar)
@@ -135,20 +133,20 @@ namespace ConsoleViewLayer
         public void SearchByName()
         {
             Console.Write("Name: ");
-            IList<Lorry> results = lorryServicesObj.GetByName(Console.ReadLine());
-            foreach (Lorry selectedLorry in results)
+            IList<Motorbike> results = motorbikeServicesObj.GetByName(Console.ReadLine());
+            foreach (Motorbike selectedMotorbike in results)
             {
-                PrintInfo(selectedLorry, true);
+                PrintInfo(selectedMotorbike, true);
             }
         }
 
-        public void Select(Lorry selectedLorry)
+        public void Select(Motorbike selectedMotorbike)
         {
             bool exit = false;
             while (!exit)
             {
-                Console.WriteLine("\nSelected Lorry:");
-                PrintInfo(selectedLorry, false);
+                Console.WriteLine("\nSelected Motorbike:");
+                PrintInfo(selectedMotorbike, false);
                 Console.WriteLine("Choose an option:");
                 Console.WriteLine("\t1. Edit");
                 Console.WriteLine("\t2. Delete");
@@ -159,15 +157,15 @@ namespace ConsoleViewLayer
                 switch (Console.ReadKey(true).KeyChar)
                 {
                     case '1':
-                        LorryEditConsoleView lorryEditConsoleView = new LorryEditConsoleView(selectedLorry);
-                        selectedLorry = lorryServicesObj.Update(lorryEditConsoleView.Load());
+                        MotorbikeEditConsoleView motorbikeEditConsoleView = new MotorbikeEditConsoleView(selectedMotorbike);
+                        selectedMotorbike = motorbikeServicesObj.Update(motorbikeEditConsoleView.Load());
                         break;
 
                     case '2':
                         Console.Write("Type vehicle name to confirm:");
-                        if (Console.ReadLine() == selectedLorry.vehicleName)
+                        if (Console.ReadLine() == selectedMotorbike.vehicleName)
                         {
-                            lorryServicesObj.Delete(selectedLorry);
+                            motorbikeServicesObj.Delete(selectedMotorbike);
                             exit = true;
                         }
                         else
@@ -180,11 +178,11 @@ namespace ConsoleViewLayer
                         Console.Write("Enter distance in miles: ");
                         Distance distance = new Distance();
                         distance.miles = Convert.ToDecimal(Console.ReadLine());
-                        selectedLorry = lorryServicesObj.CalculateFuel(selectedLorry, distance);
+                        selectedMotorbike = motorbikeServicesObj.CalculateFuel(selectedMotorbike, distance);
                         break;
 
                     case '4':
-                        selectedLorry = lorryServicesObj.Refuel(selectedLorry);
+                        selectedMotorbike = motorbikeServicesObj.Refuel(selectedMotorbike);
                         break;
 
                     case '5':
@@ -203,12 +201,12 @@ namespace ConsoleViewLayer
             Console.Write("Id: ");
             try
             {
-                Guid lorryId = Guid.Parse(Console.ReadLine());
-                Select(lorryServicesObj.GetById(lorryId));
+                Guid motorbikeId = Guid.Parse(Console.ReadLine());
+                Select(motorbikeServicesObj.GetById(motorbikeId));
             }
             catch (NullReferenceException)
             {
-                Console.WriteLine("No lorrys matching this Id in database\n");
+                Console.WriteLine("No motorbikes matching this Id in database\n");
             }
             catch (Exception x)
             {
@@ -220,11 +218,11 @@ namespace ConsoleViewLayer
         {
             try
             {
-                Select(lorryServicesObj.GetById(Id));
+                Select(motorbikeServicesObj.GetById(Id));
             }
             catch (NullReferenceException)
             {
-                Console.WriteLine("No lorrys matching this Id in database\n");
+                Console.WriteLine("No motorbikes matching this Id in database\n");
             }
             catch (Exception x)
             {
@@ -232,27 +230,22 @@ namespace ConsoleViewLayer
             }
         }
 
-        protected void PrintInfo(Lorry selectedLorry, bool showId)
+        protected void PrintInfo(Motorbike selectedMotorbike, bool showId)
         {
             Console.WriteLine();
             if (showId)
             {
-                Console.WriteLine("Id: " + selectedLorry.Id);
+                Console.WriteLine("Id: " + selectedMotorbike.Id);
             }
             Console.WriteLine(@"Name: ""{0}"" Numberplate: {1}"
                                 + "\nMilage: {2}mpg Weight: {3}kg\n"
                                 + "Current fuel: {4}l Maximum fuel: {5}l\n"
-                                + "Current passengers: {6} Maximum passengers: {7}"
-                                , selectedLorry.vehicleName, selectedLorry.numberPlate
-                                , decimal.Round(selectedLorry.milage.milesPerGallon, 2), decimal.Round(selectedLorry.weight.kilograms, 2)
-                                , decimal.Round(selectedLorry.currentFuel.litres, 2), decimal.Round(selectedLorry.maximumFuel.litres, 2)
-                                , selectedLorry.currentPassengers, selectedLorry.maximumPassengers);
-            Console.Write("Has load: {0}", selectedLorry.hasLoad);
-            if (selectedLorry.hasLoad)
-            {
-                Console.Write(" Load weight: {0}", decimal.Round(selectedLorry.loadWeight.kilograms, 2));
-            }
-            Console.WriteLine("\n");
+                                + "Current passengers: {6} Maximum passengers: {7}\n"
+                                + "Sidecar: {8}\n"
+                                , selectedMotorbike.vehicleName, selectedMotorbike.numberPlate
+                                , decimal.Round(selectedMotorbike.milage.milesPerGallon, 2), decimal.Round(selectedMotorbike.weight.kilograms, 2)
+                                , decimal.Round(selectedMotorbike.currentFuel.litres, 2), decimal.Round(selectedMotorbike.maximumFuel.litres, 2)
+                                , selectedMotorbike.currentPassengers, selectedMotorbike.maximumPassengers, selectedMotorbike.sideCar);
         }
     }
 }

@@ -4,31 +4,19 @@
     {
         //Base value is 1 cubic metre
 
-        private const decimal _CUBIC_MILLIMETRE = 1000000000;
         private const decimal _CUBIC_CENTIMETRE = 1000;
-        private const decimal _CUBIC_KILOMETRE = 0.000000001M;
         private const decimal _CUBIC_FOOT = 35.314666721M;
         private const decimal _CUBIC_INCH = 61023.744095M;
+        private const decimal _CUBIC_KILOMETRE = 0.000000001M;
+        private const decimal _CUBIC_MILLIMETRE = 1000000000;
         private const decimal _CUBIC_YARD = 1.3079506193M;
         private const decimal _GALLON = 219.9692483M;
-        private const decimal _MEGALITRE = 0.001M;
         private const decimal _KILOLITRE = 1;
         private const decimal _LITRE = 1000;
-        private const decimal _MILLILITRE = 1000000;
+        private const decimal _MEGALITRE = 0.001M;
         private const decimal _MICROLITRE = 1000000000;
+        private const decimal _MILLILITRE = 1000000;
         private decimal _volume;
-
-        public decimal cubicMillimetres
-        {
-            get
-            {
-                return (_volume * _CUBIC_MILLIMETRE);
-            }
-            set
-            {
-                _volume = (value / _CUBIC_MILLIMETRE);
-            }
-        }
 
         public decimal cubicCentimetres
         {
@@ -39,30 +27,6 @@
             set
             {
                 _volume = (value / _CUBIC_CENTIMETRE);
-            }
-        }
-
-        public decimal cubicMetres
-        {
-            get
-            {
-                return _volume;
-            }
-            set
-            {
-                _volume = value;
-            }
-        }
-
-        public decimal cubicKilometres
-        {
-            get
-            {
-                return (_volume * _CUBIC_KILOMETRE);
-            }
-            set
-            {
-                _volume = (value / _CUBIC_KILOMETRE);
             }
         }
 
@@ -90,6 +54,42 @@
             }
         }
 
+        public decimal cubicKilometres
+        {
+            get
+            {
+                return (_volume * _CUBIC_KILOMETRE);
+            }
+            set
+            {
+                _volume = (value / _CUBIC_KILOMETRE);
+            }
+        }
+
+        public decimal cubicMetres
+        {
+            get
+            {
+                return _volume;
+            }
+            set
+            {
+                _volume = value;
+            }
+        }
+
+        public decimal cubicMillimetres
+        {
+            get
+            {
+                return (_volume * _CUBIC_MILLIMETRE);
+            }
+            set
+            {
+                _volume = (value / _CUBIC_MILLIMETRE);
+            }
+        }
+
         public decimal cubicYards
         {
             get
@@ -111,18 +111,6 @@
             set
             {
                 _volume = (value / _GALLON);
-            }
-        }
-
-        public decimal megalitres
-        {
-            get
-            {
-                return (_volume * _MEGALITRE);
-            }
-            set
-            {
-                _volume = (value / _MEGALITRE);
             }
         }
 
@@ -150,15 +138,15 @@
             }
         }
 
-        public decimal millilitres
+        public decimal megalitres
         {
             get
             {
-                return (_volume * _MILLILITRE);
+                return (_volume * _MEGALITRE);
             }
             set
             {
-                _volume = (value / _MILLILITRE);
+                _volume = (value / _MEGALITRE);
             }
         }
 
@@ -171,6 +159,18 @@
             set
             {
                 _volume = (value / _MICROLITRE);
+            }
+        }
+
+        public decimal millilitres
+        {
+            get
+            {
+                return (_volume * _MILLILITRE);
+            }
+            set
+            {
+                _volume = (value / _MILLILITRE);
             }
         }
     }

@@ -3,9 +3,9 @@ using ObjectModelLayer;
 
 namespace NHibernateLayer.ClassMaps
 {
-    internal class CarMap : ClassMap<Car>
+    internal class MotorbikeMap : ClassMap<Motorbike>
     {
-        public CarMap()
+        public MotorbikeMap()
         {
             Id(x => x.Id).GeneratedBy.GuidComb();
             Map(x => x.vehicleName).Not.Nullable();
@@ -16,7 +16,7 @@ namespace NHibernateLayer.ClassMaps
             Map(x => x.maximumPassengers).Not.Nullable();
             Component(x => x.milage);
             Map(x => x.numberPlate);
-            Map(x => x.carType);
+            Map(x => x.sideCar);
         }
     }
 }

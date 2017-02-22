@@ -5,8 +5,8 @@ namespace ConsoleViewLayer
 {
     internal class CarEditConsoleView : CarConsoleView
     {
-        private Car originalCar = new Car();
         private Car editedCar = new Car();
+        private Car originalCar = new Car();
 
         public CarEditConsoleView(Car carToEdit)
         {
@@ -92,18 +92,6 @@ namespace ConsoleViewLayer
             return editedCar;
         }
 
-        private void editName()
-        {
-            Console.Write("Name: ");
-            editedCar.vehicleName = Console.ReadLine();
-        }
-
-        private void editNumberPlate()
-        {
-            Console.Write("Number plate: ");
-            editedCar.numberPlate = Console.ReadLine();
-        }
-
         private void editCarType()
         {
             Console.WriteLine("1. Hatchback");
@@ -146,16 +134,10 @@ namespace ConsoleViewLayer
             }
         }
 
-        private void editMilage()
+        private void editCurrentPassengers()
         {
-            Console.Write("Milage(mpg): ");
-            editedCar.milage.milesPerGallon = Convert.ToDecimal(Console.ReadLine());
-        }
-
-        private void editWeight()
-        {
-            Console.Write("Weight(kg): ");
-            editedCar.weight.kilograms = Convert.ToDecimal(Console.ReadLine());
+            Console.Write("Current passengers: ");
+            editedCar.currentPassengers = Convert.ToInt32(Console.ReadLine());
         }
 
         private void editMaximumFuel()
@@ -170,10 +152,28 @@ namespace ConsoleViewLayer
             editedCar.maximumPassengers = Convert.ToInt32(Console.ReadLine());
         }
 
-        private void editCurrentPassengers()
+        private void editMilage()
         {
-            Console.Write("Current passengers: ");
-            editedCar.currentPassengers = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Milage(mpg): ");
+            editedCar.milage.milesPerGallon = Convert.ToDecimal(Console.ReadLine());
+        }
+
+        private void editName()
+        {
+            Console.Write("Name: ");
+            editedCar.vehicleName = Console.ReadLine();
+        }
+
+        private void editNumberPlate()
+        {
+            Console.Write("Number plate: ");
+            editedCar.numberPlate = Console.ReadLine();
+        }
+
+        private void editWeight()
+        {
+            Console.Write("Weight(kg): ");
+            editedCar.weight.kilograms = Convert.ToDecimal(Console.ReadLine());
         }
     }
 }

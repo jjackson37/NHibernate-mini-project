@@ -3,33 +3,32 @@ using System;
 
 namespace ObjectModelLayer
 {
-    public class Lorry : Automobile, ICloneable
+    public class Motorbike : Automobile, ICloneable
     {
-        public Lorry()
+        public Motorbike()
         {
+
         }
 
-        public Lorry(string vehicleName, string numberPlate, FuelEconomy milage, Weight weight, bool hasLoad,
-            Weight loadWeight, Volume maximumFuel, int currentPassengers, int maximumPassengers)
+        public Motorbike(string vehicleName, string numberPlate, FuelEconomy milage, Weight weight,
+            Volume maximumFuel, int currentPassengers, int maximumPassengers, bool sideCar)
         {
             this.vehicleName = vehicleName;
             this.numberPlate = numberPlate;
             this.milage = milage;
             this.weight = weight;
-            this.hasLoad = hasLoad;
-            this.loadWeight = loadWeight;
             this.maximumFuel = maximumFuel;
             currentFuel = maximumFuel;
             this.currentPassengers = currentPassengers;
             this.maximumPassengers = maximumPassengers;
+            this.sideCar = sideCar;
         }
 
-        public virtual bool hasLoad { get; set; }
-        public virtual Weight loadWeight { get; set; }
+        public virtual bool sideCar{get;set;}
 
-        public virtual Lorry Clone()
+        public virtual Motorbike Clone()
         {
-            return (Lorry)MemberwiseClone();
+            return (Motorbike)MemberwiseClone();
         }
 
         object ICloneable.Clone()

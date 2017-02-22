@@ -54,6 +54,8 @@
     <Compile Include="LorryEditConsoleView.cs" />
     <Compile Include="MainConsoleView.cs" />
     <Compile Include="IConsoleView.cs" />
+    <Compile Include="MotorbikeConsoleView.cs" />
+    <Compile Include="MotorbikeEditConsoleView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

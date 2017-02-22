@@ -3,39 +3,39 @@ using System;
 
 namespace ConsoleViewLayer
 {
-    internal class LorryEditConsoleView : LorryConsoleView
+    internal class MotorbikeEditConsoleView : MotorbikeConsoleView
     {
-        private Lorry editedLorry = new Lorry();
-        private Lorry originalLorry = new Lorry();
+        private Motorbike editedMotorbike = new Motorbike();
+        private Motorbike originalMotorbike = new Motorbike();
 
-        public LorryEditConsoleView(Lorry lorryToEdit)
+        public MotorbikeEditConsoleView(Motorbike motorbikeToEdit)
         {
-            editedLorry = lorryToEdit.Clone();
-            originalLorry = lorryToEdit.Clone();
+            editedMotorbike = motorbikeToEdit.Clone();
+            originalMotorbike = motorbikeToEdit.Clone();
         }
 
-        public new Lorry Load()
+        public new Motorbike Load()
         {
             bool exit = false;
             while (!exit)
             {
                 Console.WriteLine("Unedited:");
-                PrintInfo(originalLorry, false);
+                PrintInfo(originalMotorbike, false);
 
                 Console.WriteLine("Edited:");
-                PrintInfo(editedLorry, false);
+                PrintInfo(editedMotorbike, false);
 
                 Console.WriteLine("Select field to edit");
                 Console.WriteLine("\t1. Vehicle name");
                 Console.WriteLine("\t2. Number plate");
-                Console.WriteLine("\t3. Load");
+                Console.WriteLine("\t3. Sidecar");
                 Console.WriteLine("\t4. Milage");
                 Console.WriteLine("\t5. Weight");
                 Console.WriteLine("\t6. Maximum fuel");
                 Console.WriteLine("\t7. Maximum passengers");
                 Console.WriteLine("\t8. Current passengers");
                 Console.WriteLine("\t9. Save changes");
-                Console.WriteLine("\t0. Discard changes and go back");
+                Console.WriteLine("\t0. Dismotorbiked changes and go back");
 
                 switch (Console.ReadKey(true).KeyChar)
                 {
@@ -48,7 +48,7 @@ namespace ConsoleViewLayer
                         break;
 
                     case '3':
-                        editLoad();
+                        editSidecar();
                         break;
 
                     case '4':
@@ -76,10 +76,10 @@ namespace ConsoleViewLayer
                         break;
 
                     case '0':
-                        Console.WriteLine("Discard changes? Y/N");
+                        Console.WriteLine("Dismotorbiked changes? Y/N");
                         if (Console.ReadKey(true).KeyChar == 'y')
                         {
-                            editedLorry = originalLorry;
+                            editedMotorbike = originalMotorbike;
                             exit = true;
                         }
                         break;
@@ -89,36 +89,25 @@ namespace ConsoleViewLayer
                         break;
                 }
             }
-            return editedLorry;
+            return editedMotorbike;
         }
 
-        private void editCurrentPassengers()
+        private void editSidecar()
         {
-            Console.Write("Current passengers: ");
-            editedLorry.currentPassengers = Convert.ToInt32(Console.ReadLine());
-        }
-
-        private void editLoad()
-        {
-            bool validLoadInput = false;
-            while (!validLoadInput)
+            bool sideCarValidInput = false;
+            while (!sideCarValidInput)
             {
-                Console.Write("Has load (Y/N):");
+                Console.Write("Sidecar (Y/N):");
                 switch (Console.ReadKey().KeyChar)
                 {
                     case 'y':
-                        editedLorry.hasLoad = true;
-                        validLoadInput = true;
-                        Console.Write("Load weight (kg): ");
-                        editedLorry.loadWeight.kilograms = Convert.ToDecimal(Console.ReadLine());
+                        editedMotorbike.sideCar = true;
+                        sideCarValidInput = true;
                         break;
-
                     case 'n':
-                        editedLorry.hasLoad = false;
-                        editedLorry.loadWeight = null;
-                        validLoadInput = true;
+                        editedMotorbike.sideCar = true;
+                        sideCarValidInput = true;
                         break;
-
                     default:
                         Console.WriteLine("\nInvalid input");
                         break;
@@ -126,40 +115,46 @@ namespace ConsoleViewLayer
             }
         }
 
+        private void editCurrentPassengers()
+        {
+            Console.Write("Current passengers: ");
+            editedMotorbike.currentPassengers = Convert.ToInt32(Console.ReadLine());
+        }
+
         private void editMaximumFuel()
         {
             Console.Write("Maximum fuel(l): ");
-            editedLorry.maximumFuel.litres = Convert.ToDecimal(Console.ReadLine());
+            editedMotorbike.maximumFuel.litres = Convert.ToDecimal(Console.ReadLine());
         }
 
         private void editMaximumPassengers()
         {
             Console.Write("Maximum passengers: ");
-            editedLorry.maximumPassengers = Convert.ToInt32(Console.ReadLine());
+            editedMotorbike.maximumPassengers = Convert.ToInt32(Console.ReadLine());
         }
 
         private void editMilage()
         {
             Console.Write("Milage(mpg): ");
-            editedLorry.milage.milesPerGallon = Convert.ToDecimal(Console.ReadLine());
+            editedMotorbike.milage.milesPerGallon = Convert.ToDecimal(Console.ReadLine());
         }
 
         private void editName()
         {
             Console.Write("Name: ");
-            editedLorry.vehicleName = Console.ReadLine();
+            editedMotorbike.vehicleName = Console.ReadLine();
         }
 
         private void editNumberPlate()
         {
             Console.Write("Number plate: ");
-            editedLorry.numberPlate = Console.ReadLine();
+            editedMotorbike.numberPlate = Console.ReadLine();
         }
 
         private void editWeight()
         {
             Console.Write("Weight(kg): ");
-            editedLorry.weight.kilograms = Convert.ToDecimal(Console.ReadLine());
+            editedMotorbike.weight.kilograms = Convert.ToDecimal(Console.ReadLine());
         }
     }
 }

@@ -8,90 +8,90 @@ using System.Linq;
 
 namespace ServicesLayer
 {
-    public class LorryServices
+    public class MotorbikeServices
     {
-        public Lorry Add(string vehicleName, string numberPlate, FuelEconomy milage, Weight weight, bool hasLoad,
-            Weight loadWeight, Volume maximumFuel, int currentPassengers, int maximumPassengers)
+        public Motorbike Add(string vehicleName, string numberPlate, FuelEconomy milage,
+            Weight weight, Volume maximumFuel, int maximumPassengers, int currentPassengers, bool sideCar)
         {
-            Lorry lorryToAdd = new Lorry(vehicleName, numberPlate, milage, weight, hasLoad, loadWeight,
-                maximumFuel, currentPassengers, maximumPassengers);
+            Motorbike motorbikeToAdd = new Motorbike(vehicleName, numberPlate, milage, weight, maximumFuel
+                , currentPassengers, maximumPassengers, sideCar);
             using (var session = NHibernateHelper.OpenSession())
             {
                 using (var tx = session.BeginTransaction())
                 {
-                    session.Save(lorryToAdd);
+                    session.Save(motorbikeToAdd);
                     tx.Commit();
                 }
             }
-            return lorryToAdd;
+            return motorbikeToAdd;
         }
 
-        public Lorry CalculateFuel(Lorry lorryToCalculate, Distance distance)
+        public Motorbike CalculateFuel(Motorbike motorbikeToCalculate, Distance distance)
         {
-            lorryToCalculate.currentFuel.gallons -= (distance.miles / lorryToCalculate.milage.milesPerGallon);
-            if (lorryToCalculate.currentFuel.litres < 0)
+            motorbikeToCalculate.currentFuel.gallons -= (distance.miles / motorbikeToCalculate.milage.milesPerGallon);
+            if (motorbikeToCalculate.currentFuel.litres < 0)
             {
-                lorryToCalculate.currentFuel.litres = 0;
+                motorbikeToCalculate.currentFuel.litres = 0;
             }
             using (var session = NHibernateHelper.OpenSession())
             {
                 using (var tx = session.BeginTransaction())
                 {
-                    session.Update(lorryToCalculate);
+                    session.Update(motorbikeToCalculate);
                     tx.Commit();
                 }
             }
-            return lorryToCalculate;
+            return motorbikeToCalculate;
         }
 
-        public void Delete(Lorry lorryToDelete)
+        public void Delete(Motorbike motorbikeToDelete)
         {
             using (var session = NHibernateHelper.OpenSession())
             {
                 using (var tx = session.BeginTransaction())
                 {
-                    session.Delete(lorryToDelete);
+                    session.Delete(motorbikeToDelete);
                     tx.Commit();
                 }
             }
         }
 
-        public IList<Lorry> GetAll()
+        public IList<Motorbike> GetAll()
         {
-            IList<Lorry> listToReturn = null;
+            IList<Motorbike> listToReturn = null;
             using (var session = NHibernateHelper.OpenSession())
             {
                 using (var tx = session.BeginTransaction())
                 {
-                    listToReturn = session.CreateCriteria<Lorry>().List<Lorry>();
+                    listToReturn = session.CreateCriteria<Motorbike>().List<Motorbike>();
                     tx.Commit();
                 }
             }
             return listToReturn;
         }
 
-        public Lorry GetById(Guid Id)
+        public Motorbike GetById(Guid Id)
         {
-            Lorry lorryToReturn = null;
+            Motorbike motorbikeToReturn = null;
             using (var session = NHibernateHelper.OpenSession())
             {
                 using (var tx = session.BeginTransaction())
                 {
-                    lorryToReturn = session.Get<Lorry>(Id);
+                    motorbikeToReturn = session.Get<Motorbike>(Id);
                     tx.Commit();
                 }
             }
-            return lorryToReturn;
+            return motorbikeToReturn;
         }
 
-        public IList<Lorry> GetByName(string name)
+        public IList<Motorbike> GetByName(string name)
         {
-            IList<Lorry> listToReturn = null;
+            IList<Motorbike> listToReturn = null;
             using (var session = NHibernateHelper.OpenSession())
             {
                 using (var tx = session.BeginTransaction())
                 {
-                    listToReturn = session.Query<Lorry>()
+                    listToReturn = session.Query<Motorbike>()
                         .Where(c => c.vehicleName == name).ToList();
                     tx.Commit();
                 }
@@ -99,31 +99,31 @@ namespace ServicesLayer
             return listToReturn;
         }
 
-        public Lorry Refuel(Lorry lorryToRefuel)
+        public Motorbike Refuel(Motorbike motorbikeToRefuel)
         {
-            lorryToRefuel.currentFuel = lorryToRefuel.maximumFuel;
+            motorbikeToRefuel.currentFuel = motorbikeToRefuel.maximumFuel;
             using (var session = NHibernateHelper.OpenSession())
             {
                 using (var tx = session.BeginTransaction())
                 {
-                    session.Update(lorryToRefuel);
+                    session.Update(motorbikeToRefuel);
                     tx.Commit();
                 }
             }
-            return lorryToRefuel;
+            return motorbikeToRefuel;
         }
 
-        public Lorry Update(Lorry lorryToUpdate)
+        public Motorbike Update(Motorbike motorbikeToUpdate)
         {
             using (var session = NHibernateHelper.OpenSession())
             {
                 using (var tx = session.BeginTransaction())
                 {
-                    session.Update(lorryToUpdate);
+                    session.Update(motorbikeToUpdate);
                     tx.Commit();
                 }
             }
-            return lorryToUpdate;
+            return motorbikeToUpdate;
         }
     }
 }
