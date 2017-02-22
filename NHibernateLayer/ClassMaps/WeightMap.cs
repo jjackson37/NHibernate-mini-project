@@ -7,7 +7,8 @@ namespace NHibernateLayer.ClassMaps
     {
         private WeightMap()
         {
-            Map(x => x.kilograms).Column("weight");
+            Map(x => x.kilograms)
+                .Column("weight");
         }
     }
 }

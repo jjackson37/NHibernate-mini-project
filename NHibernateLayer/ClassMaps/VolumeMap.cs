@@ -7,7 +7,8 @@ namespace NHibernateLayer.ClassMaps
     {
         public VolumeMap()
         {
-            Map(x => x.litres).Column("Fuel");
+            Map(x => x.litres)
+                .Column("Fuel");
         }
     }
 }

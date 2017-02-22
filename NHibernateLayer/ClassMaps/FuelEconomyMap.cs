@@ -7,7 +7,8 @@ namespace NHibernateLayer.ClassMaps
     {
         public FuelEconomyMap()
         {
-            Map(x => x.milesPerGallon).Column("milage");
+            Map(x => x.milesPerGallon)
+                .Column("milage");
         }
     }
 }
