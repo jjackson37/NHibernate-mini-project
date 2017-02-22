@@ -1,53 +1,129 @@
-﻿using System;
+﻿using HelperClasses.Measurements;
+using NHibernate.Linq;
+using NHibernateLayer;
+using ObjectModelLayer;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ServicesLayer
 {
     public class LorryServices
     {
-        public bool Add(object VehicleToAdd)
+        public Lorry Add(string vehicleName, string numberPlate, FuelEconomy milage, Weight weight, bool hasLoad,
+            Weight loadWeight, Volume maximumFuel, int currentPassengers, int maximumPassengers)
         {
-            throw new NotImplementedException();
+            Lorry lorryToAdd = new Lorry(vehicleName, numberPlate, milage, weight, hasLoad, loadWeight,
+                maximumFuel, currentPassengers, maximumPassengers);
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                using (var tx = session.BeginTransaction())
+                {
+                    session.Save(lorryToAdd);
+                    tx.Commit();
+                }
+            }
+            return lorryToAdd;
+        }
+            
+        public void Delete(Lorry lorryToDelete)
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                using (var tx = session.BeginTransaction())
+                {
+                    session.Delete(lorryToDelete);
+                    tx.Commit();
+                }
+            }
         }
 
-        public bool Delete(Guid Id)
+        public Lorry Update(Lorry lorryToUpdate)
         {
-            throw new NotImplementedException();
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                using (var tx = session.BeginTransaction())
+                {
+                    session.Update(lorryToUpdate);
+                    tx.Commit();
+                }
+            }
+            return lorryToUpdate;
         }
 
-        public bool Edit(Guid Id)
+        public Lorry GetById(Guid Id)
         {
-            throw new NotImplementedException();
+            Lorry lorryToReturn = null;
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                using (var tx = session.BeginTransaction())
+                {
+                    lorryToReturn = session.Get<Lorry>(Id);
+                    tx.Commit();
+                }
+            }
+            return lorryToReturn;
         }
 
-        public object FindById(Guid Id)
+        public IList<Lorry> GetByName(string name)
         {
-            throw new NotImplementedException();
+            IList<Lorry> listToReturn = null;
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                using (var tx = session.BeginTransaction())
+                {
+                    listToReturn = session.Query<Lorry>()
+                        .Where(c => c.vehicleName == name).ToList();
+                    tx.Commit();
+                }
+            }
+            return listToReturn;
         }
 
-        public List<object> FindByName(string name)
+        public IList<Lorry> GetAll()
         {
-            throw new NotImplementedException();
+            IList<Lorry> listToReturn = null;
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                using (var tx = session.BeginTransaction())
+                {
+                    listToReturn = session.CreateCriteria<Lorry>().List<Lorry>();
+                    tx.Commit();
+                }
+            }
+            return listToReturn;
         }
 
-        public List<object> GetAll()
+        public Lorry Refuel(Lorry lorryToRefuel)
         {
-            throw new NotImplementedException();
+            lorryToRefuel.currentFuel = lorryToRefuel.maximumFuel;
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                using (var tx = session.BeginTransaction())
+                {
+                    session.Update(lorryToRefuel);
+                    tx.Commit();
+                }
+            }
+            return lorryToRefuel;
         }
 
-        public bool Refuel(Guid Id)
+        public Lorry CalculateFuel(Lorry lorryToCalculate, Distance distance)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool SimulateFuel(Guid Id, decimal distance)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool ToggleLoad(Guid Id, decimal weight)
-        {
-            throw new NotImplementedException();
+            lorryToCalculate.currentFuel.gallons -= (distance.miles * lorryToCalculate.milage.milesPerGallon);
+            if (lorryToCalculate.currentFuel.litres < 0)
+            {
+                lorryToCalculate.currentFuel.litres = 0;
+            }
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                using (var tx = session.BeginTransaction())
+                {
+                    session.Update(lorryToCalculate);
+                    tx.Commit();
+                }
+            }
+            return lorryToCalculate;
         }
     }
 }

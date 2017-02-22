@@ -26,13 +26,13 @@ namespace ServicesLayer
             return carToAdd;
         }
 
-        public void Delete(Car CarToDelete)
+        public void Delete(Car carToDelete)
         {
             using (var session = NHibernateHelper.OpenSession())
             {
                 using (var tx = session.BeginTransaction())
                 {
-                    session.Delete(CarToDelete);
+                    session.Delete(carToDelete);
                     tx.Commit();
                 }
             }
@@ -81,49 +81,49 @@ namespace ServicesLayer
             return carToReturn;
         }
 
-        public Car Update(Car CarToUpdate)
+        public Car Update(Car carToUpdate)
         {
             using (var session = NHibernateHelper.OpenSession())
             {
                 using (var tx = session.BeginTransaction())
                 {
-                    session.Update(CarToUpdate);
+                    session.Update(carToUpdate);
                     tx.Commit();
                 }
             }
-            return CarToUpdate;
+            return carToUpdate;
         }
 
-        public Car CalculateFuel(Car CarToCalculate, Distance distance)
+        public Car CalculateFuel(Car carToCalculate, Distance distance)
         {
-            CarToCalculate.currentFuel.gallons -= (distance.miles * CarToCalculate.milage.milesPerGallon);
-            if (CarToCalculate.currentFuel.litres < 0)
+            carToCalculate.currentFuel.gallons -= (distance.miles * carToCalculate.milage.milesPerGallon);
+            if (carToCalculate.currentFuel.litres < 0)
             {
-                CarToCalculate.currentFuel.litres = 0;
+                carToCalculate.currentFuel.litres = 0;
             }
             using (var session = NHibernateHelper.OpenSession())
             {
                 using (var tx = session.BeginTransaction())
                 {
-                    session.Update(CarToCalculate);
+                    session.Update(carToCalculate);
                     tx.Commit();
                 }
             }
-            return CarToCalculate;
+            return carToCalculate;
         }
 
-        public Car Refuel(Car CarToRefuel)
+        public Car Refuel(Car carToRefuel)
         {
-            CarToRefuel.currentFuel = CarToRefuel.maximumFuel;
+            carToRefuel.currentFuel = carToRefuel.maximumFuel;
             using (var session = NHibernateHelper.OpenSession())
             {
                 using (var tx = session.BeginTransaction())
                 {
-                    session.Update(CarToRefuel);
+                    session.Update(carToRefuel);
                     tx.Commit();
                 }
             }
-            return CarToRefuel;
+            return carToRefuel;
         }
     }
 }
