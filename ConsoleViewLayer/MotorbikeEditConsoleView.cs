@@ -116,21 +116,12 @@ namespace ConsoleViewLayer
         {
             Console.Write("Maximum fuel(l): ");
             editedMotorbike.maximumFuel.litres = Convert.ToDecimal(Console.ReadLine());
-            editedMotorbike.currentFuel = editedMotorbike.maximumFuel;
         }
 
         private void editMaximumPassengers()
         {
             Console.Write("Maximum passengers: ");
-            int newMaximumPassengers = Convert.ToInt32(Console.ReadLine());
-            if (editedMotorbike.passengers.Count <= newMaximumPassengers)
-            {
-                editedMotorbike.maximumPassengers = Convert.ToInt32(Console.ReadLine());
-            }
-            else
-            {
-                Console.WriteLine("Too many passengers are currently in this vehicle");
-            }
+            editedMotorbike.maximumPassengers = Convert.ToInt32(Console.ReadLine());
         }
 
         private void editMilage()
