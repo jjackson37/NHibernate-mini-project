@@ -17,14 +17,21 @@ namespace ConsoleViewLayer
 
         public void Add()
         {
-            Passenger passengerToAdd = new Passenger();
-            Console.WriteLine("Add passenger");
-            Console.Write("First name: ");
-            passengerToAdd.firstName = Console.ReadLine();
-            Console.Write("Last name: ");
-            passengerToAdd.lastName = Console.ReadLine();
-            selectedLorry.passengers.Add(passengerToAdd);
-            selectedLorry = lorryServiceObj.Update(selectedLorry);
+            if (selectedLorry.passengers.Count != selectedLorry.maximumPassengers)
+            {
+                Passenger passengerToAdd = new Passenger();
+                Console.WriteLine("Add passenger");
+                Console.Write("First name: ");
+                passengerToAdd.firstName = Console.ReadLine();
+                Console.Write("Last name: ");
+                passengerToAdd.lastName = Console.ReadLine();
+                selectedLorry.passengers.Add(passengerToAdd);
+                selectedLorry = lorryServiceObj.Update(selectedLorry);
+            }
+            else
+            {
+                Console.WriteLine("This vehicle is full");
+            }
         }
 
         public void Delete()

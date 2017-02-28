@@ -54,7 +54,7 @@
     <Compile Include="CarEditConsoleView.cs" />
     <Compile Include="LorryConsoleView.cs" />
     <Compile Include="LorryEditConsoleView.cs" />
-    <Compile Include="LorryPassengerView.cs" />
+    <Compile Include="LorryPassengerConsoleView.cs" />
     <Compile Include="MainConsoleView.cs" />
     <Compile Include="IConsoleView.cs" />
     <Compile Include="MotorbikeConsoleView.cs" />
