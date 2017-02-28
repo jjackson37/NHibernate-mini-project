@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperClasses", "HelperClas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateLayer", "NHibernateLayer\NHibernateLayer.csproj", "{2D0DA174-E78F-4FFD-BF0D-7613838202E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsViewLayer", "WindowsFormsViewLayer\WindowsFormsViewLayer.csproj", "{D3103384-CD24-48F6-9FDF-0756A6AA2088}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2D0DA174-E78F-4FFD-BF0D-7613838202E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D0DA174-E78F-4FFD-BF0D-7613838202E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D0DA174-E78F-4FFD-BF0D-7613838202E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3103384-CD24-48F6-9FDF-0756A6AA2088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3103384-CD24-48F6-9FDF-0756A6AA2088}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3103384-CD24-48F6-9FDF-0756A6AA2088}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3103384-CD24-48F6-9FDF-0756A6AA2088}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
