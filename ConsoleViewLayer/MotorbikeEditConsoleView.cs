@@ -34,7 +34,7 @@ namespace ConsoleViewLayer
                 Console.WriteLine("\t6. Maximum fuel");
                 Console.WriteLine("\t7. Maximum passengers");
                 Console.WriteLine("\t8. Save changes");
-                Console.WriteLine("\t9. Dismotorbiked changes and go back");
+                Console.WriteLine("\t9. Discard changes and go back");
 
                 switch (Console.ReadKey(true).KeyChar)
                 {
@@ -71,7 +71,7 @@ namespace ConsoleViewLayer
                         break;
 
                     case '9':
-                        Console.WriteLine("Dismotorbiked changes? Y/N");
+                        Console.WriteLine("Discard changes? Y/N");
                         if (Console.ReadKey(true).KeyChar == 'y')
                         {
                             editedMotorbike = originalMotorbike;
