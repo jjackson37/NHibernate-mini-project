@@ -1,5 +1,6 @@
 ﻿using HelperClasses.Measurements;
 using System;
+using System.Collections.Generic;
 
 namespace ObjectModelLayer
 {
@@ -7,10 +8,11 @@ namespace ObjectModelLayer
     {
         public Car()
         {
+            passengers = new List<Passenger>();
         }
 
         public Car(string vehicleName, string numberPlate, CarType carType, FuelEconomy milage, Weight weight,
-            Volume maximumFuel, int currentPassengers, int maximumPassengers)
+            Volume maximumFuel, int maximumPassengers)
         {
             this.vehicleName = vehicleName;
             this.numberPlate = numberPlate;
@@ -19,8 +21,8 @@ namespace ObjectModelLayer
             this.weight = weight;
             this.maximumFuel = maximumFuel;
             currentFuel = maximumFuel;
-            this.currentPassengers = currentPassengers;
             this.maximumPassengers = maximumPassengers;
+            passengers = new List<Passenger>();
         }
 
         public enum CarType

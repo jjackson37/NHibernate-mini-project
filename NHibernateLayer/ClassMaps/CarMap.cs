@@ -21,9 +21,6 @@ namespace NHibernateLayer.ClassMaps
 
             Component(x => x.weight);
 
-            Map(x => x.currentPassengers)
-                .Not.Nullable();
-
             Map(x => x.maximumPassengers)
                 .Not.Nullable();
 
@@ -32,6 +29,11 @@ namespace NHibernateLayer.ClassMaps
             Map(x => x.numberPlate);
 
             Map(x => x.carType);
+
+            HasMany(x => x.passengers)
+                .KeyColumn("vehicleId")
+                .Not.LazyLoad()
+                .Cascade.AllDeleteOrphan();
         }
     }
 }

@@ -56,6 +56,7 @@
     <Compile Include="ClassMaps\FuelEconomyMap.cs" />
     <Compile Include="ClassMaps\LorryMap.cs" />
     <Compile Include="ClassMaps\MotorbikeMap.cs" />
+    <Compile Include="ClassMaps\PassengerMap.cs" />
     <Compile Include="ClassMaps\VolumeMap.cs" />
     <Compile Include="ClassMaps\WeightMap.cs" />
     <Compile Include="NHibernateHelper.cs" />

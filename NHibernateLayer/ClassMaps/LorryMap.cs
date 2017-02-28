@@ -33,6 +33,10 @@ namespace NHibernateLayer.ClassMaps
 
             Component(x => x.loadWeight)
                 .ColumnPrefix("load");
+
+            HasMany(x => x.passengers)
+                .KeyColumn("vehicleId")
+                .Cascade.AllDeleteOrphan();
         }
     }
 }

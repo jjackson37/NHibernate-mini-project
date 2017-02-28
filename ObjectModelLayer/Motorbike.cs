@@ -1,5 +1,6 @@
 ﻿using HelperClasses.Measurements;
 using System;
+using System.Collections.Generic;
 
 namespace ObjectModelLayer
 {
@@ -7,7 +8,7 @@ namespace ObjectModelLayer
     {
         public Motorbike()
         {
-
+            passengers = new List<Passenger>();
         }
 
         public Motorbike(string vehicleName, string numberPlate, FuelEconomy milage, Weight weight,
@@ -22,6 +23,7 @@ namespace ObjectModelLayer
             this.currentPassengers = currentPassengers;
             this.maximumPassengers = maximumPassengers;
             this.sideCar = sideCar;
+            passengers = new List<Passenger>();
         }
 
         public virtual bool sideCar{get;set;}

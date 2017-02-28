@@ -47,15 +47,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarPassengerConsoleView.cs" />
+    <Compile Include="IPassengerConsoleView.cs" />
     <Compile Include="ISelectedConsoleView.cs" />
     <Compile Include="CarConsoleView.cs" />
     <Compile Include="CarEditConsoleView.cs" />
     <Compile Include="LorryConsoleView.cs" />
     <Compile Include="LorryEditConsoleView.cs" />
+    <Compile Include="LorryPassengerView.cs" />
     <Compile Include="MainConsoleView.cs" />
     <Compile Include="IConsoleView.cs" />
     <Compile Include="MotorbikeConsoleView.cs" />
     <Compile Include="MotorbikeEditConsoleView.cs" />
+    <Compile Include="MotorbikePassengerConsoleView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

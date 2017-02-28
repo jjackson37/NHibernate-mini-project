@@ -88,11 +88,8 @@ namespace ConsoleViewLayer
             Console.Write("Maximum passengers: ");
             int maximumPassengers = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Current passengers: ");
-            int currentPassengers = Convert.ToInt32(Console.ReadLine());
-
             Car addedCar = carServicesObj.Add(vehicleName, numberPlate, carType, milage, weight, maximumFuel,
-                maximumPassengers, currentPassengers);
+                maximumPassengers);
 
             SelectById(addedCar.Id);
         }
@@ -151,6 +148,7 @@ namespace ConsoleViewLayer
 
         public void SearchByName()
         {
+            Console.WriteLine("Search cars");
             Console.Write("Name: ");
             IList<Car> results = carServicesObj.GetByName(Console.ReadLine());
             foreach (Car selectedCar in results)
@@ -171,7 +169,8 @@ namespace ConsoleViewLayer
                 Console.WriteLine("\t2. Delete");
                 Console.WriteLine("\t3. Calculate fuel");
                 Console.WriteLine("\t4. Refuel");
-                Console.WriteLine("\t5. Back");
+                Console.WriteLine("\t5. Passengers");
+                Console.WriteLine("\t6. Back");
 
                 switch (Console.ReadKey(true).KeyChar)
                 {
@@ -205,6 +204,11 @@ namespace ConsoleViewLayer
                         break;
 
                     case '5':
+                        CarPassengerConsoleView carPassengers = new CarPassengerConsoleView(selectedCar);
+                        carPassengers.Load();
+                        break;
+
+                    case '6':
                         exit = true;
                         break;
 
@@ -258,12 +262,12 @@ namespace ConsoleViewLayer
             }
             Console.WriteLine(@"Name: ""{0}"" Numberplate: {1} Type: {2}"
                                 + "\nMilage: {3}mpg Weight: {4}kg\n"
-                                + "Current fuel: {5}l Maximum fuel: {6}l\n"
-                                + "Current passengers: {7} Maximum passengers: {8}\n"
+                                + "Current fuel: {5}/{6}l\n"
+                                + "Current passengers: {7}/{8}\n"
                                 , selectedCar.vehicleName, selectedCar.numberPlate, selectedCar.carType
                                 , decimal.Round(selectedCar.milage.milesPerGallon, 2), decimal.Round(selectedCar.weight.kilograms, 2)
                                 , decimal.Round(selectedCar.currentFuel.litres, 2), decimal.Round(selectedCar.maximumFuel.litres, 2)
-                                , selectedCar.currentPassengers, selectedCar.maximumPassengers);
+                                , selectedCar.passengers.Count, selectedCar.maximumPassengers);
         }
     }
 }

@@ -29,9 +29,15 @@ namespace NHibernateLayer.ClassMaps
 
             Component(x => x.milage);
 
-            Map(x => x.numberPlate);
+            Map(x => x.numberPlate)
+                .Not.Nullable();
 
-            Map(x => x.sideCar);
+            Map(x => x.sideCar)
+                .Not.Nullable();
+
+            HasMany(x => x.passengers)
+                .KeyColumn("vehicleId")
+                .Cascade.AllDeleteOrphan();
         }
     }
 }

@@ -241,8 +241,8 @@ namespace ConsoleViewLayer
             }
             Console.WriteLine(@"Name: ""{0}"" Numberplate: {1}"
                                 + "\nMilage: {2}mpg Weight: {3}kg\n"
-                                + "Current fuel: {4}l Maximum fuel: {5}l\n"
-                                + "Current passengers: {6} Maximum passengers: {7}"
+                                + "Current fuel: {4}/{5}l\n"
+                                + "Current passengers: {6}/{7}"
                                 , selectedLorry.vehicleName, selectedLorry.numberPlate
                                 , decimal.Round(selectedLorry.milage.milesPerGallon, 2), decimal.Round(selectedLorry.weight.kilograms, 2)
                                 , decimal.Round(selectedLorry.currentFuel.litres, 2), decimal.Round(selectedLorry.maximumFuel.litres, 2)
