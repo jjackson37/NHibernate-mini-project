@@ -33,9 +33,8 @@ namespace ConsoleViewLayer
                 Console.WriteLine("\t5. Weight");
                 Console.WriteLine("\t6. Maximum fuel");
                 Console.WriteLine("\t7. Maximum passengers");
-                Console.WriteLine("\t8. Current passengers");
-                Console.WriteLine("\t9. Save changes");
-                Console.WriteLine("\t0. Dismotorbiked changes and go back");
+                Console.WriteLine("\t8. Save changes");
+                Console.WriteLine("\t9. Dismotorbiked changes and go back");
 
                 switch (Console.ReadKey(true).KeyChar)
                 {
@@ -68,14 +67,10 @@ namespace ConsoleViewLayer
                         break;
 
                     case '8':
-                        editCurrentPassengers();
-                        break;
-
-                    case '9':
                         exit = true;
                         break;
 
-                    case '0':
+                    case '9':
                         Console.WriteLine("Dismotorbiked changes? Y/N");
                         if (Console.ReadKey(true).KeyChar == 'y')
                         {
@@ -104,21 +99,17 @@ namespace ConsoleViewLayer
                         editedMotorbike.sideCar = true;
                         sideCarValidInput = true;
                         break;
+
                     case 'n':
                         editedMotorbike.sideCar = true;
                         sideCarValidInput = true;
                         break;
+
                     default:
                         Console.WriteLine("\nInvalid input");
                         break;
                 }
             }
-        }
-
-        private void editCurrentPassengers()
-        {
-            Console.Write("Current passengers: ");
-            editedMotorbike.currentPassengers = Convert.ToInt32(Console.ReadLine());
         }
 
         private void editMaximumFuel()

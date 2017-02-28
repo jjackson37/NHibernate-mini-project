@@ -3,9 +3,6 @@ using ObjectModelLayer;
 using ServicesLayer;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleViewLayer
 {
@@ -49,9 +46,6 @@ namespace ConsoleViewLayer
             Console.Write("Maximum passengers: ");
             int maximumPassengers = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Current passengers: ");
-            int currentPassengers = Convert.ToInt32(Console.ReadLine());
-
             bool sideCar = false, sideCarValidInput = false;
             while (!sideCarValidInput)
             {
@@ -62,10 +56,12 @@ namespace ConsoleViewLayer
                         sideCar = true;
                         sideCarValidInput = true;
                         break;
+
                     case 'n':
                         sideCar = true;
                         sideCarValidInput = true;
                         break;
+
                     default:
                         Console.WriteLine("\nInvalid input");
                         break;
@@ -73,7 +69,7 @@ namespace ConsoleViewLayer
             }
 
             Motorbike addedMotorbike = motorbikeServicesObj.Add(vehicleName, numberPlate, milage, weight, maximumFuel,
-                maximumPassengers, currentPassengers, sideCar);
+                maximumPassengers, sideCar);
 
             SelectById(addedMotorbike.Id);
         }
@@ -152,7 +148,8 @@ namespace ConsoleViewLayer
                 Console.WriteLine("\t2. Delete");
                 Console.WriteLine("\t3. Calculate fuel");
                 Console.WriteLine("\t4. Refuel");
-                Console.WriteLine("\t5. Back");
+                Console.WriteLine("\t5. Passengers");
+                Console.WriteLine("\t6. Back");
 
                 switch (Console.ReadKey(true).KeyChar)
                 {
@@ -186,6 +183,11 @@ namespace ConsoleViewLayer
                         break;
 
                     case '5':
+                        MotorbikePassengerConsoleView motorbikePassengers = new MotorbikePassengerConsoleView(selectedMotorbike);
+                        motorbikePassengers.Load();
+                        break;
+
+                    case '6':
                         exit = true;
                         break;
 
@@ -245,7 +247,7 @@ namespace ConsoleViewLayer
                                 , selectedMotorbike.vehicleName, selectedMotorbike.numberPlate
                                 , decimal.Round(selectedMotorbike.milage.milesPerGallon, 2), decimal.Round(selectedMotorbike.weight.kilograms, 2)
                                 , decimal.Round(selectedMotorbike.currentFuel.litres, 2), decimal.Round(selectedMotorbike.maximumFuel.litres, 2)
-                                , selectedMotorbike.currentPassengers, selectedMotorbike.maximumPassengers, selectedMotorbike.sideCar);
+                                , selectedMotorbike.passengers.Count, selectedMotorbike.maximumPassengers, selectedMotorbike.sideCar);
         }
     }
 }

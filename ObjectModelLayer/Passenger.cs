@@ -6,7 +6,6 @@ namespace ObjectModelLayer
     {
         public Passenger()
         {
-
         }
 
         public Passenger(string firstName, string lastName, Vehicle vehicleId)

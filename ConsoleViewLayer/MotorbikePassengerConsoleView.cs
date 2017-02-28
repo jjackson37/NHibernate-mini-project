@@ -1,36 +1,88 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ObjectModelLayer;
+using ServicesLayer;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleViewLayer
 {
-    class MotorbikePassengerConsoleView : IPassengerConsoleView
+    internal class MotorbikePassengerConsoleView : IPassengerConsoleView
     {
+        private Motorbike selectedMotorbike;
+        private MotorbikeServices motorbikeServiceObj = new MotorbikeServices();
+
+        public MotorbikePassengerConsoleView(Motorbike selectedMotorbike)
+        {
+            this.selectedMotorbike = selectedMotorbike;
+        }
+
         public void Add()
         {
-            throw new NotImplementedException();
+            Passenger passengerToAdd = new Passenger();
+            Console.WriteLine("Add passenger");
+            Console.Write("First name: ");
+            passengerToAdd.firstName = Console.ReadLine();
+            Console.Write("Last name: ");
+            passengerToAdd.lastName = Console.ReadLine();
+            selectedMotorbike.passengers.Add(passengerToAdd);
+            selectedMotorbike = motorbikeServiceObj.Update(selectedMotorbike);
         }
 
         public void Delete()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Delete passenger");
+            Console.Write("Id: ");
+            Guid motorbikeId = Guid.Parse(Console.ReadLine());
+            Passenger passengerToDelete = selectedMotorbike.passengers.SingleOrDefault(x => x.Id == motorbikeId);
+            selectedMotorbike.passengers.Remove(passengerToDelete);
+            selectedMotorbike = motorbikeServiceObj.Update(selectedMotorbike);
         }
 
         public void List()
         {
-            throw new NotImplementedException();
+            foreach (Passenger currentPassenger in selectedMotorbike.passengers)
+            {
+                Console.WriteLine("Id: " + currentPassenger.Id);
+                Console.WriteLine(@"First name: ""{0}"" Last name: ""{1}""", currentPassenger.firstName, currentPassenger.lastName);
+                Console.WriteLine();
+            }
         }
 
         public void Load()
         {
-            throw new NotImplementedException();
-        }
+            bool exit = false;
 
-        public void SearchByLastName()
-        {
-            throw new NotImplementedException();
+            while (!exit)
+            {
+                Console.WriteLine("Passengers");
+                Console.WriteLine("Choose an option:\n");
+                Console.WriteLine("\t1. Display passengers");
+                Console.WriteLine("\t2. Add new passenger");
+                Console.WriteLine("\t3. Delete a passenger");
+                Console.WriteLine("\t4. Back\n");
+
+                switch (Console.ReadKey(true).KeyChar)
+                {
+                    case '1':
+                        List();
+                        break;
+
+                    case '2':
+                        Add();
+                        break;
+
+                    case '3':
+                        Delete();
+                        break;
+
+                    case '4':
+                        exit = true;
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid input");
+                        break;
+                }
+            }
         }
     }
 }

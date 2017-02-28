@@ -12,7 +12,7 @@ namespace ObjectModelLayer
         }
 
         public Lorry(string vehicleName, string numberPlate, FuelEconomy milage, Weight weight, bool hasLoad,
-            Weight loadWeight, Volume maximumFuel, int currentPassengers, int maximumPassengers)
+            Weight loadWeight, Volume maximumFuel, int maximumPassengers)
         {
             this.vehicleName = vehicleName;
             this.numberPlate = numberPlate;
@@ -22,7 +22,6 @@ namespace ObjectModelLayer
             this.loadWeight = loadWeight;
             this.maximumFuel = maximumFuel;
             currentFuel = maximumFuel;
-            this.currentPassengers = currentPassengers;
             this.maximumPassengers = maximumPassengers;
             passengers = new List<Passenger>();
         }

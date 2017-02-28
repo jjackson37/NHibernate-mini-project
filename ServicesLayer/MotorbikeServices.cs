@@ -11,10 +11,10 @@ namespace ServicesLayer
     public class MotorbikeServices
     {
         public Motorbike Add(string vehicleName, string numberPlate, FuelEconomy milage,
-            Weight weight, Volume maximumFuel, int maximumPassengers, int currentPassengers, bool sideCar)
+            Weight weight, Volume maximumFuel, int maximumPassengers, bool sideCar)
         {
             Motorbike motorbikeToAdd = new Motorbike(vehicleName, numberPlate, milage, weight, maximumFuel
-                , currentPassengers, maximumPassengers, sideCar);
+                , maximumPassengers, sideCar);
             using (var session = NHibernateHelper.OpenSession())
             {
                 using (var tx = session.BeginTransaction())

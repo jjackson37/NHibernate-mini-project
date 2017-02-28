@@ -1,10 +1,5 @@
 ﻿using FluentNHibernate.Mapping;
 using ObjectModelLayer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NHibernateLayer.ClassMaps
 {
@@ -20,7 +15,6 @@ namespace NHibernateLayer.ClassMaps
 
             Map(x => x.lastName)
                 .Not.Nullable();
-                
         }
     }
 }

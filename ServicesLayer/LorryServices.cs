@@ -11,10 +11,10 @@ namespace ServicesLayer
     public class LorryServices
     {
         public Lorry Add(string vehicleName, string numberPlate, FuelEconomy milage, Weight weight, bool hasLoad,
-            Weight loadWeight, Volume maximumFuel, int currentPassengers, int maximumPassengers)
+            Weight loadWeight, Volume maximumFuel, int maximumPassengers)
         {
             Lorry lorryToAdd = new Lorry(vehicleName, numberPlate, milage, weight, hasLoad, loadWeight,
-                maximumFuel, currentPassengers, maximumPassengers);
+                maximumFuel, maximumPassengers);
             using (var session = NHibernateHelper.OpenSession())
             {
                 using (var tx = session.BeginTransaction())

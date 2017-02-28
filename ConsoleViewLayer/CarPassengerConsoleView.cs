@@ -1,14 +1,11 @@
 ﻿using ObjectModelLayer;
 using ServicesLayer;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleViewLayer
 {
-    class CarPassengerConsoleView : IPassengerConsoleView
+    internal class CarPassengerConsoleView : IPassengerConsoleView
     {
         private Car selectedCar;
         private CarServices carServiceObj = new CarServices();

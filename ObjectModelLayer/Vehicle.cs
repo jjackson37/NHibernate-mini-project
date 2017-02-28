@@ -7,7 +7,6 @@ namespace ObjectModelLayer
     public abstract class Vehicle : ObjectModel
     {
         public virtual Volume currentFuel { get; set; }
-        public virtual int currentPassengers { get; set; }
         public virtual Guid Id { get; set; }
         public virtual Volume maximumFuel { get; set; }
         public virtual int maximumPassengers { get; set; }

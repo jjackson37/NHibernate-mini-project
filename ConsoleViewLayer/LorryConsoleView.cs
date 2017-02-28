@@ -71,11 +71,8 @@ namespace ConsoleViewLayer
             Console.Write("Maximum passengers: ");
             int maximumPassengers = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Current passengers: ");
-            int currentPassengers = Convert.ToInt32(Console.ReadLine());
-
             Lorry addedLorry = lorryServicesObj.Add(vehicleName, numberPlate, milage, weight, hasLoad,
-                loadWeight, maximumFuel, currentPassengers, maximumPassengers);
+                loadWeight, maximumFuel, maximumPassengers);
 
             SelectById(addedLorry.Id);
         }
@@ -154,7 +151,8 @@ namespace ConsoleViewLayer
                 Console.WriteLine("\t2. Delete");
                 Console.WriteLine("\t3. Calculate fuel");
                 Console.WriteLine("\t4. Refuel");
-                Console.WriteLine("\t5. Back");
+                Console.WriteLine("\t5. Passengers");
+                Console.WriteLine("\t6. Back");
 
                 switch (Console.ReadKey(true).KeyChar)
                 {
@@ -188,6 +186,11 @@ namespace ConsoleViewLayer
                         break;
 
                     case '5':
+                        LorryPassengerConsoleView lorryPassengers = new LorryPassengerConsoleView(selectedLorry);
+                        lorryPassengers.Load();
+                        break;
+
+                    case '6':
                         exit = true;
                         break;
 
@@ -246,7 +249,7 @@ namespace ConsoleViewLayer
                                 , selectedLorry.vehicleName, selectedLorry.numberPlate
                                 , decimal.Round(selectedLorry.milage.milesPerGallon, 2), decimal.Round(selectedLorry.weight.kilograms, 2)
                                 , decimal.Round(selectedLorry.currentFuel.litres, 2), decimal.Round(selectedLorry.maximumFuel.litres, 2)
-                                , selectedLorry.currentPassengers, selectedLorry.maximumPassengers);
+                                , selectedLorry.passengers.Count, selectedLorry.maximumPassengers);
             Console.Write("Has load: {0}", selectedLorry.hasLoad);
             if (selectedLorry.hasLoad)
             {
