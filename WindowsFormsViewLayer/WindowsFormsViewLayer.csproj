@@ -12,6 +12,21 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,14 +61,131 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarFormViews\AddCarFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarFormViews\AddCarFormView.Designer.cs">
+      <DependentUpon>AddCarFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CarFormViews\CalcualteFuelCarFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarFormViews\CalcualteFuelCarFormView.Designer.cs">
+      <DependentUpon>CalcualteFuelCarFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CarFormViews\CarFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarFormViews\CarFormView.Designer.cs">
+      <DependentUpon>CarFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CarFormViews\EditCarFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarFormViews\EditCarFormView.Designer.cs">
+      <DependentUpon>EditCarFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CarFormViews\PassengerCarFormViews\AddPassengerCarFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarFormViews\PassengerCarFormViews\AddPassengerCarFormView.Designer.cs">
+      <DependentUpon>AddPassengerCarFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CarFormViews\PassengerCarFormViews\PassengerCarFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarFormViews\PassengerCarFormViews\PassengerCarFormView.Designer.cs">
+      <DependentUpon>PassengerCarFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LorryFormViews\AddLorryFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LorryFormViews\AddLorryFormView.Designer.cs">
+      <DependentUpon>AddLorryFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LorryFormViews\CalculateFuelLorryFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LorryFormViews\CalculateFuelLorryFormView.Designer.cs">
+      <DependentUpon>CalculateFuelLorryFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LorryFormViews\EditLorryFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LorryFormViews\EditLorryFormView.Designer.cs">
+      <DependentUpon>EditLorryFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LorryFormViews\LorryFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LorryFormViews\LorryFormView.Designer.cs">
+      <DependentUpon>LorryFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LorryFormViews\PassengerLorryFormViews\AddPassengerLorryFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LorryFormViews\PassengerLorryFormViews\AddPassengerLorryFormView.Designer.cs">
+      <DependentUpon>AddPassengerLorryFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LorryFormViews\PassengerLorryFormViews\PassengerLorryFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LorryFormViews\PassengerLorryFormViews\PassengerLorryFormView.Designer.cs">
+      <DependentUpon>PassengerLorryFormView.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainFormView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainFormView.Designer.cs">
       <DependentUpon>MainFormView.cs</DependentUpon>
     </Compile>
+    <Compile Include="MotorbikeViews\AddMotorbikeFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotorbikeViews\AddMotorbikeFormView.Designer.cs">
+      <DependentUpon>AddMotorbikeFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MotorbikeViews\CalculateFuelMotorbikeFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotorbikeViews\CalculateFuelMotorbikeFormView.Designer.cs">
+      <DependentUpon>CalculateFuelMotorbikeFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MotorbikeViews\EditMotorbikeFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotorbikeViews\EditMotorbikeFormView.Designer.cs">
+      <DependentUpon>EditMotorbikeFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MotorbikeViews\MotorbikeFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotorbikeViews\MotorbikeFormView.Designer.cs">
+      <DependentUpon>MotorbikeFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MotorbikeViews\PassengerMotorbikeFormView\AddPassengerMotorbikeFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotorbikeViews\PassengerMotorbikeFormView\AddPassengerMotorbikeFormView.Designer.cs">
+      <DependentUpon>AddPassengerMotorbikeFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MotorbikeViews\PassengerMotorbikeFormView\PassengerMotorbikeFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MotorbikeViews\PassengerMotorbikeFormView\PassengerMotorbikeFormView.Designer.cs">
+      <DependentUpon>PassengerMotorbikeFormView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CarFormViews\AddCarFormView.resx">
+      <DependentUpon>AddCarFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarFormViews\CarFormView.resx">
+      <DependentUpon>CarFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormView.resx">
+      <DependentUpon>MainFormView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +195,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\ObjectModelLayer.Car+CarType.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +208,32 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HelperClasses\HelperClasses.csproj">
+      <Project>{AD81D593-50D3-48D5-A3F8-CBB705B9DC52}</Project>
+      <Name>HelperClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ObjectModelLayer\ObjectModelLayer.csproj">
+      <Project>{1EDA7436-01CB-466F-AB31-2475840E64B2}</Project>
+      <Name>ObjectModelLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServicesLayer\ServicesLayer.csproj">
+      <Project>{B7303231-1857-4C52-83D4-F0E23645771A}</Project>
+      <Name>ServicesLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
