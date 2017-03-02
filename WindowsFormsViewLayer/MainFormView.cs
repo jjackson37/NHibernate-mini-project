@@ -5,7 +5,6 @@ namespace WindowsFormsViewLayer
 {
     public partial class MainFormView : Form
     {
-
         public MainFormView()
         {
             InitializeComponent();
@@ -14,21 +13,21 @@ namespace WindowsFormsViewLayer
         private void carButton_Click(object sender, EventArgs e)
         {
             var carFormView = new CarFormView();
-            carFormView.Show();
+            carFormView.Show(this);
             Hide();
         }
 
         private void lorryButton_Click(object sender, EventArgs e)
         {
             var lorryFormView = new LorryFormView();
-            lorryFormView.Show();
+            lorryFormView.Show(this);
             Hide();
         }
 
         private void motorbikeButton_Click(object sender, EventArgs e)
         {
             var motorbikeFormView = new MotorbikeFormView();
-            motorbikeFormView.Show();
+            motorbikeFormView.Show(this);
             Hide();
         }
 

@@ -180,8 +180,20 @@
     <EmbeddedResource Include="CarFormViews\AddCarFormView.resx">
       <DependentUpon>AddCarFormView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CarFormViews\CalcualteFuelCarFormView.resx">
+      <DependentUpon>CalcualteFuelCarFormView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CarFormViews\CarFormView.resx">
       <DependentUpon>CarFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarFormViews\EditCarFormView.resx">
+      <DependentUpon>EditCarFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarFormViews\PassengerCarFormViews\AddPassengerCarFormView.resx">
+      <DependentUpon>AddPassengerCarFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarFormViews\PassengerCarFormViews\PassengerCarFormView.resx">
+      <DependentUpon>PassengerCarFormView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFormView.resx">
       <DependentUpon>MainFormView.cs</DependentUpon>
@@ -196,6 +208,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="Properties\DataSources\ObjectModelLayer.Car+CarType.datasource" />
+    <None Include="Properties\DataSources\WindowsFormsViewLayer.CarFormViews.PassengerCarFormViews.PassengerCarFormView.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

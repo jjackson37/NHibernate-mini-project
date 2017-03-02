@@ -36,13 +36,13 @@
             this.Fuel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Milage = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Passengers = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.backButton = new System.Windows.Forms.Button();
             this.refuelButton = new System.Windows.Forms.Button();
             this.calculateFuelButton = new System.Windows.Forms.Button();
             this.passengerButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // carList
@@ -102,16 +102,6 @@
             this.Passengers.Text = "Passengers";
             this.Passengers.Width = 68;
             // 
-            // backButton
-            // 
-            this.backButton.Location = new System.Drawing.Point(12, 486);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(110, 73);
-            this.backButton.TabIndex = 1;
-            this.backButton.Text = "Back";
-            this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
-            // 
             // refuelButton
             // 
             this.refuelButton.Location = new System.Drawing.Point(12, 407);
@@ -130,6 +120,7 @@
             this.calculateFuelButton.TabIndex = 3;
             this.calculateFuelButton.Text = "Calculate fuel";
             this.calculateFuelButton.UseVisualStyleBackColor = true;
+            this.calculateFuelButton.Click += new System.EventHandler(this.calculateFuelButton_Click);
             // 
             // passengerButton
             // 
@@ -139,6 +130,7 @@
             this.passengerButton.TabIndex = 4;
             this.passengerButton.Text = "Passengers";
             this.passengerButton.UseVisualStyleBackColor = true;
+            this.passengerButton.Click += new System.EventHandler(this.passengerButton_Click);
             // 
             // editButton
             // 
@@ -148,6 +140,7 @@
             this.editButton.TabIndex = 5;
             this.editButton.Text = "Edit";
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // deleteButton
             // 
@@ -169,18 +162,28 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
+            // refreshButton
+            // 
+            this.refreshButton.Location = new System.Drawing.Point(12, 486);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(110, 73);
+            this.refreshButton.TabIndex = 8;
+            this.refreshButton.Text = "Reload list";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
             // CarFormView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 568);
+            this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.passengerButton);
             this.Controls.Add(this.calculateFuelButton);
             this.Controls.Add(this.refuelButton);
-            this.Controls.Add(this.backButton);
             this.Controls.Add(this.carList);
             this.Name = "CarFormView";
             this.Text = "Car";
@@ -199,12 +202,12 @@
         private System.Windows.Forms.ColumnHeader Fuel;
         private System.Windows.Forms.ColumnHeader Milage;
         private System.Windows.Forms.ColumnHeader Passengers;
-        private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Button refuelButton;
         private System.Windows.Forms.Button calculateFuelButton;
         private System.Windows.Forms.Button passengerButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button refreshButton;
     }
 }

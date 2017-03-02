@@ -1,20 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ObjectModelLayer;
 using System.Windows.Forms;
 
 namespace WindowsFormsViewLayer.CarFormViews.PassengerCarFormViews
 {
     public partial class AddPassengerCarFormView : Form
     {
-        public AddPassengerCarFormView()
+        Car carToEdit;
+
+        public AddPassengerCarFormView(Car carToEdit)
         {
+            this.carToEdit = carToEdit;
             InitializeComponent();
+        }
+
+        private void submitButton_Click(object sender, System.EventArgs e)
+        {
+            Passenger newPassenger = new Passenger();
+            newPassenger.firstName = firstNameTextBox.Text;
+            newPassenger.lastName = lastNameTextBox.Text;
+            carToEdit.passengers.Add(newPassenger);
+            (Owner as PassengerCarFormView).fillPassengerList();
+            Close();
         }
     }
 }
