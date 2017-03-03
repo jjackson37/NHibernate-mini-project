@@ -185,6 +185,7 @@
             this.Controls.Add(this.calculateFuelButton);
             this.Controls.Add(this.refuelButton);
             this.Controls.Add(this.carList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CarFormView";
             this.Text = "Car";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CarFormView_FormClosed);

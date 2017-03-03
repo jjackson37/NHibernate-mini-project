@@ -192,6 +192,7 @@
             this.Controls.Add(this.calculateFuelButton);
             this.Controls.Add(this.refuelButton);
             this.Controls.Add(this.lorryList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "LorryFormView";
             this.Text = "LorryFormView";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LorryFormView_FormClosed);

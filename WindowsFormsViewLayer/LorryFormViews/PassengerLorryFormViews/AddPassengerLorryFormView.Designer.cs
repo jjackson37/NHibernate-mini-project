@@ -87,6 +87,7 @@
             this.Controls.Add(this.firstNameLabel);
             this.Controls.Add(this.lastNameTextBox);
             this.Controls.Add(this.firstNameTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddPassengerLorryFormView";
             this.Text = "AddPassengerLorryFormView";
             this.ResumeLayout(false);

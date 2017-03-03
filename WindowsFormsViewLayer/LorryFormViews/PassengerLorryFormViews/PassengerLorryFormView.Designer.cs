@@ -101,6 +101,7 @@
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.passengersListView);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PassengerLorryFormView";
             this.Text = "PassengerLorryFormView";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PassengerLorryFormView_FormClosed);

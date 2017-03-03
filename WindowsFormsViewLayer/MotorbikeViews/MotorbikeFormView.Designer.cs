@@ -184,6 +184,7 @@
             this.Controls.Add(this.calculateFuelButton);
             this.Controls.Add(this.refuelButton);
             this.Controls.Add(this.motorbikeList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MotorbikeFormView";
             this.Text = "MotorbikeFormView";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MotorbikeFormView_FormClosed);
