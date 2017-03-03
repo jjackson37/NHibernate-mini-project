@@ -104,6 +104,7 @@
             this.Name = "PassengerLorryFormView";
             this.Text = "PassengerLorryFormView";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PassengerLorryFormView_FormClosed);
+            this.Load += new System.EventHandler(this.PassengerLorryFormView_Load);
             this.ResumeLayout(false);
 
         }

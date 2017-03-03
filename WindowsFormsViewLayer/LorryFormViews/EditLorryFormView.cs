@@ -44,6 +44,10 @@ namespace WindowsFormsViewLayer.LorryFormViews
             lorryToEdit.maximumPassengers = Convert.ToInt32(maxPassengersTextBox.Text);
             lorryToEdit.maximumFuel.litres = Convert.ToDecimal(maxFuelTextBox.Text);
             lorryToEdit.milage.milesPerGallon = Convert.ToDecimal(milageTextBox.Text);
+
+            lorryServiceObj.Update(lorryToEdit);
+            Close();
+            (Owner as LorryFormView).FillLorryList();
         }
     }
 }

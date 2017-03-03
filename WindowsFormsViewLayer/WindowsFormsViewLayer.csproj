@@ -216,6 +216,24 @@
     <EmbeddedResource Include="MainFormView.resx">
       <DependentUpon>MainFormView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MotorbikeViews\AddMotorbikeFormView.resx">
+      <DependentUpon>AddMotorbikeFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MotorbikeViews\CalculateFuelMotorbikeFormView.resx">
+      <DependentUpon>CalculateFuelMotorbikeFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MotorbikeViews\EditMotorbikeFormView.resx">
+      <DependentUpon>EditMotorbikeFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MotorbikeViews\MotorbikeFormView.resx">
+      <DependentUpon>MotorbikeFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MotorbikeViews\PassengerMotorbikeFormView\AddPassengerMotorbikeFormView.resx">
+      <DependentUpon>AddPassengerMotorbikeFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MotorbikeViews\PassengerMotorbikeFormView\PassengerMotorbikeFormView.resx">
+      <DependentUpon>PassengerMotorbikeFormView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

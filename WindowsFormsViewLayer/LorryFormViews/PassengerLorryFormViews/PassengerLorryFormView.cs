@@ -60,5 +60,10 @@ namespace WindowsFormsViewLayer.LorryFormViews.PassengerLorryFormViews
             int selectedIndex = passengersListView.SelectedIndices[0];
             return lorryToEdit.passengers[0];
         }
+
+        private void PassengerLorryFormView_Load(object sender, System.EventArgs e)
+        {
+            fillPassengerList();
+        }
     }
 }
