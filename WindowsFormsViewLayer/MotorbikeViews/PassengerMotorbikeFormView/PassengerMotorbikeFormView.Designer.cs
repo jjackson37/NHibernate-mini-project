@@ -101,6 +101,7 @@
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.passengersListView);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PassengerMotorbikeFormView";
             this.Text = "PassengerMotorbikeFormView";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PassengerMotorbikeFormView_FormClosed);

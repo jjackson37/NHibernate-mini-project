@@ -203,6 +203,7 @@
             this.Controls.Add(this.weightTextBox);
             this.Controls.Add(this.numberPlateTextBox);
             this.Controls.Add(this.vehicleNameTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EditLorryFormView";
             this.Text = "EditLorryFormView";
             this.Load += new System.EventHandler(this.EditLorryFormView_Load);

@@ -68,6 +68,7 @@
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.distanceLabel);
             this.Controls.Add(this.DistanceNumericUpDown);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CalcualteFuelCarFormView";
             this.Text = "Calculate fuel";
             ((System.ComponentModel.ISupportInitialize)(this.DistanceNumericUpDown)).EndInit();
