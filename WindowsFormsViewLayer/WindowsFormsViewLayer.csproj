@@ -195,6 +195,24 @@
     <EmbeddedResource Include="CarFormViews\PassengerCarFormViews\PassengerCarFormView.resx">
       <DependentUpon>PassengerCarFormView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LorryFormViews\AddLorryFormView.resx">
+      <DependentUpon>AddLorryFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LorryFormViews\CalculateFuelLorryFormView.resx">
+      <DependentUpon>CalculateFuelLorryFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LorryFormViews\EditLorryFormView.resx">
+      <DependentUpon>EditLorryFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LorryFormViews\LorryFormView.resx">
+      <DependentUpon>LorryFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LorryFormViews\PassengerLorryFormViews\AddPassengerLorryFormView.resx">
+      <DependentUpon>AddPassengerLorryFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LorryFormViews\PassengerLorryFormViews\PassengerLorryFormView.resx">
+      <DependentUpon>PassengerLorryFormView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainFormView.resx">
       <DependentUpon>MainFormView.cs</DependentUpon>
     </EmbeddedResource>

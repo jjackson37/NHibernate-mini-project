@@ -62,7 +62,7 @@ namespace WindowsFormsViewLayer.CarFormViews
                 Convert.ToInt32(maxPassengersTextBox.Text)
                 );
 
-            (Owner as CarFormView).fillCarList();
+            (Owner as CarFormView).FillCarList();
             Close();
         }
     }

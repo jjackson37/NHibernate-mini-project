@@ -61,7 +61,7 @@ namespace WindowsFormsViewLayer.CarFormViews
                 carToEdit.maximumPassengers = Convert.ToInt32(maxPassengersTextBox.Text);
             }
             carServicesObj.Update(carToEdit);
-            (Owner as CarFormView).fillCarList();
+            (Owner as CarFormView).FillCarList();
             Close();
         }
     }

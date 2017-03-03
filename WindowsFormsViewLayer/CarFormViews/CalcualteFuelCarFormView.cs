@@ -22,7 +22,7 @@ namespace WindowsFormsViewLayer.CarFormViews
             Distance distance = new Distance();
             distance.miles = DistanceNumericUpDown.Value;
             carServicesObj.CalculateFuel(carToCalculate, distance);
-            (Owner as CarFormView).fillCarList();
+            (Owner as CarFormView).FillCarList();
             Close();
         }
     }

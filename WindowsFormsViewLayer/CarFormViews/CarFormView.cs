@@ -14,10 +14,10 @@ namespace WindowsFormsViewLayer
         public CarFormView()
         {
             InitializeComponent();
-            fillCarList();
+            FillCarList();
         }
 
-        public void fillCarList()
+        public void FillCarList()
         {
             IList<Car> allCars = carServicesObj.GetAll();
 
@@ -50,7 +50,7 @@ namespace WindowsFormsViewLayer
 
         private void calculateFuelButton_Click(object sender, System.EventArgs e)
         {
-            CalcualteFuelCarFormView calculateFuelCarFormView = new CalcualteFuelCarFormView(getSelectedCar());
+            CalcualteFuelCarFormView calculateFuelCarFormView = new CalcualteFuelCarFormView(GetSelectedCar());
             calculateFuelCarFormView.ShowDialog(this);
         }
 
@@ -61,17 +61,17 @@ namespace WindowsFormsViewLayer
 
         private void deleteButton_Click(object sender, System.EventArgs e)
         {
-            carServicesObj.Delete(getSelectedCar());
-            fillCarList();
+            carServicesObj.Delete(GetSelectedCar());
+            FillCarList();
         }
 
         private void editButton_Click(object sender, System.EventArgs e)
         {
-            EditCarFormView editCarFormView = new EditCarFormView(getSelectedCar());
+            EditCarFormView editCarFormView = new EditCarFormView(GetSelectedCar());
             editCarFormView.ShowDialog(this);
         }
 
-        private Car getSelectedCar()
+        private Car GetSelectedCar()
         {
             int selectedIndex = carList.SelectedIndices[0];
             IList<Car> allCars = carServicesObj.GetAll();
@@ -80,18 +80,18 @@ namespace WindowsFormsViewLayer
 
         private void refuelButton_Click(object sender, System.EventArgs e)
         {
-            carServicesObj.Refuel(getSelectedCar());
-            fillCarList();
+            carServicesObj.Refuel(GetSelectedCar());
+            FillCarList();
         }
 
         private void refreshButton_Click(object sender, System.EventArgs e)
         {
-            fillCarList();
+            FillCarList();
         }
 
         private void passengerButton_Click(object sender, System.EventArgs e)
         {
-            PassengerCarFormView passengerCarFormView = new PassengerCarFormView(getSelectedCar());
+            PassengerCarFormView passengerCarFormView = new PassengerCarFormView(GetSelectedCar());
             passengerCarFormView.ShowDialog(this);
         }
     }

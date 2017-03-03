@@ -48,20 +48,13 @@ namespace WindowsFormsViewLayer.CarFormViews.PassengerCarFormViews
 
         private void checkMaxPassengerCount()
         {
-            if (carToEdit.passengers.Count >= carToEdit.maximumPassengers)
-            {
-                addButton.Enabled = false;
-            }
-            else
-            {
-                addButton.Enabled = true;
-            }
+            addButton.Enabled = !(carToEdit.passengers.Count >= carToEdit.maximumPassengers);
         }
 
         private void PassengerCarFormView_FormClosed(object sender, FormClosedEventArgs e)
         {
             carServicesObj.Update(carToEdit);
-            (Owner as CarFormView).fillCarList();
+            (Owner as CarFormView).FillCarList();
         }
 
         private Passenger getSelectedPassenger()
