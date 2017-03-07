@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace WebViewLayer
 {
-    public partial class About : Page
+    public partial class MotorbikeWebpageView : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

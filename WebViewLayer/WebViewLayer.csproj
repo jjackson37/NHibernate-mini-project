@@ -154,8 +154,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
-    <Content Include="Contact.aspx" />
+    <Content Include="CarWebpageViews\CarWebpageAddView.aspx" />
+    <Content Include="MotorbikeWebpageViews\MotorbikeWebpageView.aspx" />
+    <Content Include="LorryWebpageViews\LorryWebpageView.aspx" />
+    <Content Include="CarWebpageViews\CarWebpageView.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -199,7 +201,6 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
-    <Content Include="Bundle.config" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
@@ -212,20 +213,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
+    <Compile Include="CarWebpageViews\CarWebpageAddView.aspx.cs">
+      <DependentUpon>CarWebpageAddView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
+    <Compile Include="CarWebpageViews\CarWebpageAddView.aspx.designer.cs">
+      <DependentUpon>CarWebpageAddView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MotorbikeWebpageViews\MotorbikeWebpageView.aspx.cs">
+      <DependentUpon>MotorbikeWebpageView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MotorbikeWebpageViews\MotorbikeWebpageView.aspx.designer.cs">
+      <DependentUpon>MotorbikeWebpageView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LorryWebpageViews\LorryWebpageView.aspx.cs">
+      <DependentUpon>LorryWebpageView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LorryWebpageViews\LorryWebpageView.aspx.designer.cs">
+      <DependentUpon>LorryWebpageView.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
+    <Compile Include="CarWebpageViews\CarWebpageView.aspx.cs">
+      <DependentUpon>CarWebpageView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
+    <Compile Include="CarWebpageViews\CarWebpageView.aspx.designer.cs">
+      <DependentUpon>CarWebpageView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -263,6 +278,24 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HelperClasses\HelperClasses.csproj">
+      <Project>{AD81D593-50D3-48D5-A3F8-CBB705B9DC52}</Project>
+      <Name>HelperClasses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NHibernateLayer\NHibernateLayer.csproj">
+      <Project>{2d0da174-e78f-4ffd-bf0d-7613838202e9}</Project>
+      <Name>NHibernateLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ObjectModelLayer\ObjectModelLayer.csproj">
+      <Project>{1EDA7436-01CB-466F-AB31-2475840E64B2}</Project>
+      <Name>ObjectModelLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServicesLayer\ServicesLayer.csproj">
+      <Project>{B7303231-1857-4C52-83D4-F0E23645771A}</Project>
+      <Name>ServicesLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
