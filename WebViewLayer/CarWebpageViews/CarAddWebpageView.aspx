@@ -1,4 +1,4 @@
-﻿<%@ Page Title="CarWebpageAddView" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CarWebpageAddView.aspx.cs" Inherits="WebViewLayer.CarWebpageViews.CarWebpageAddView" %>
+﻿<%@ Page Title="CarAddWebpageView" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CarAddWebpageView.aspx.cs" Inherits="WebViewLayer.CarWebpageViews.CarAddWebpageView" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 

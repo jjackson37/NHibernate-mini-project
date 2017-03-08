@@ -154,7 +154,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CarWebpageViews\CarWebpageAddView.aspx" />
+    <Content Include="CarWebpageViews\CarAddWebpageView.aspx" />
+    <Content Include="CarWebpageViews\CarCalculateFuelWebpageView.aspx" />
+    <Content Include="CarWebpageViews\CarDeleteWebpageView.aspx" />
+    <Content Include="CarWebpageViews\CarEditWebpageView.aspx" />
+    <Content Include="CarWebpageViews\CarPassengerWebpageView.aspx" />
     <Content Include="MotorbikeWebpageViews\MotorbikeWebpageView.aspx" />
     <Content Include="LorryWebpageViews\LorryWebpageView.aspx" />
     <Content Include="CarWebpageViews\CarWebpageView.aspx" />
@@ -213,12 +217,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="CarWebpageViews\CarWebpageAddView.aspx.cs">
-      <DependentUpon>CarWebpageAddView.aspx</DependentUpon>
+    <Compile Include="CarWebpageViews\CarAddWebpageView.aspx.cs">
+      <DependentUpon>CarAddWebpageView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CarWebpageViews\CarWebpageAddView.aspx.designer.cs">
-      <DependentUpon>CarWebpageAddView.aspx</DependentUpon>
+    <Compile Include="CarWebpageViews\CarAddWebpageView.aspx.designer.cs">
+      <DependentUpon>CarAddWebpageView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CarWebpageViews\CarCalculateFuelWebpageView.aspx.cs">
+      <DependentUpon>CarCalculateFuelWebpageView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarWebpageViews\CarCalculateFuelWebpageView.aspx.designer.cs">
+      <DependentUpon>CarCalculateFuelWebpageView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CarWebpageViews\CarDeleteWebpageView.aspx.cs">
+      <DependentUpon>CarDeleteWebpageView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarWebpageViews\CarDeleteWebpageView.aspx.designer.cs">
+      <DependentUpon>CarDeleteWebpageView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CarWebpageViews\CarEditWebpageView.aspx.cs">
+      <DependentUpon>CarEditWebpageView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarWebpageViews\CarEditWebpageView.aspx.designer.cs">
+      <DependentUpon>CarEditWebpageView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CarWebpageViews\CarPassengerWebpageView.aspx.cs">
+      <DependentUpon>CarPassengerWebpageView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarWebpageViews\CarPassengerWebpageView.aspx.designer.cs">
+      <DependentUpon>CarPassengerWebpageView.aspx</DependentUpon>
     </Compile>
     <Compile Include="MotorbikeWebpageViews\MotorbikeWebpageView.aspx.cs">
       <DependentUpon>MotorbikeWebpageView.aspx</DependentUpon>

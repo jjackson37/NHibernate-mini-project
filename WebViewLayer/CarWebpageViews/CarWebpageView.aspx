@@ -9,12 +9,11 @@
     <div class="row">
         <div class="col-md-2">
             <ul>
-                <li><a href="CarWebpageAddView.aspx">Add</a></li>
-                <li><a href="#">Delete</a></li>
-                <li><a href="#">Edit</a></li>
-                <li><a href="#">Passengers</a></li>
-                <li><a href="#">Calculate fuel</a></li>
-                <li><a href="#">Refuel</a></li>
+                <li><a href="CarAddWebpageView.aspx">Add</a></li>
+                <li><a href="CarDeleteWebpageView.aspx">Delete</a></li>
+                <li><a href="CarEditWebpageView.aspx">Edit</a></li>
+                <li><a href="CarPassengerWebpageView.aspx">Passengers</a></li>
+                <li><a href="CarCalculateFuelWebpageView.aspx">Calculate fuel</a></li>
             </ul>
         </div>
         <div class="col-md-10">

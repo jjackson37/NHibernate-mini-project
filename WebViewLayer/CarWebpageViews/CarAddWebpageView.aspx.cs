@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace WebViewLayer.CarWebpageViews
 {
-    public partial class CarWebpageAddView : Page
+    public partial class CarAddWebpageView : Page
     {
         CarServices carServicesObj = new CarServices();
 

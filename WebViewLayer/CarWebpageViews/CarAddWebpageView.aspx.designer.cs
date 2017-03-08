@@ -10,7 +10,7 @@
 namespace WebViewLayer.CarWebpageViews {
     
     
-    public partial class CarWebpageAddView {
+    public partial class CarAddWebpageView {
         
         /// <summary>
         /// vehicleNameTxtBox control.
